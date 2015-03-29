@@ -6,3 +6,4 @@ AudioController.Core/bin/*
 AudioController.Core/obj/*
 *.suo
 *.user
+Releases/*

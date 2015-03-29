@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Threading;
 using AudioController.Core;
 
+using WinForms = System.Windows.Forms;
+
 namespace AudioController
 {
     public static class Program
@@ -18,6 +20,19 @@ namespace AudioController
         [DebuggerNonUserCode]
         public static void Main()
         {
+            WinForms.Application.EnableVisualStyles();
+            WinForms.Application.SetCompatibleTextRenderingDefault(false);
+
+            var notifyIcon = new WinForms.NotifyIcon
+            {
+                Visible = true,
+                Icon = Properties.Resources.Icon,
+                ContextMenu = new WinForms.ContextMenu(new[]
+                {
+                    new WinForms.MenuItem("Exit", (s, e) => app.Shutdown()),
+                })
+            };
+
             Hook.Initialize();
             Hook.HotKeyTriggered += SwitchAudioOutput;
             try
@@ -25,6 +40,7 @@ namespace AudioController
                 app = new App {ShutdownMode = ShutdownMode.OnExplicitShutdown};
                 dispatcher = Dispatcher.CurrentDispatcher;
                 app.Run();
+                notifyIcon.Dispose();
             }
             finally
             {
