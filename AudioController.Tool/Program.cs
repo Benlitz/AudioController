@@ -54,7 +54,6 @@ namespace AudioController.Tool
                         DeviceName = devices[nextIndex].Name
                     };
                     mainWindow.Show();
-                    //mainWindow.Activate();
                 }));
             }
         }
