@@ -1,0 +1,5 @@
+AudioController.Cmd/bin/*
+AudioController.Cmd/obj/*
+AudioController/bin/*
+AudioController/obj/*
+*.suo
