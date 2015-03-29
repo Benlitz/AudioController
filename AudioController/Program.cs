@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Threading;
 using AudioController.Core;
 
-namespace AudioController.Tool
+namespace AudioController
 {
     public static class Program
     {

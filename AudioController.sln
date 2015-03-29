@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Core", "Aud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Cmd", "AudioController.Cmd\AudioController.Cmd.csproj", "{B89CECE6-35BB-4195-8065-3A3598E0996F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Tool", "AudioController.Tool\AudioController.Tool.csproj", "{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController", "AudioController\AudioController.csproj", "{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

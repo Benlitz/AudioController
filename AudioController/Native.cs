@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 // ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
-namespace AudioController.Native
+namespace AudioController
 {
     // NOTE: This enum is incomplete
     internal enum Message : uint

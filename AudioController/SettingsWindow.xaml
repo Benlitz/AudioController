@@ -1,4 +1,4 @@
-﻿<Window x:Class="AudioController.Tool.SettingsWindow"
+﻿<Window x:Class="AudioController.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SettingsWindow" Height="300" Width="300">

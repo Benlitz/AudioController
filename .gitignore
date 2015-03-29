@@ -1,10 +1,8 @@
-AudioController.Cmd/bin/*
-AudioController.Cmd/obj/*
 AudioController/bin/*
 AudioController/obj/*
-*.suo
-AudioController.Tool/bin/*
-AudioController.Tool/obj/*
-*.user
+AudioController.Cmd/bin/*
+AudioController.Cmd/obj/*
 AudioController.Core/bin/*
 AudioController.Core/obj/*
+*.suo
+*.user

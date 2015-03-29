@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows.Interop;
-using AudioController.Native;
 
-namespace AudioController.Tool
+namespace AudioController
 {
     public class HotKey : IDisposable
     {
