@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AudioController
+namespace AudioController.Core
 {
     public class Device : IEquatable<Device>
     {

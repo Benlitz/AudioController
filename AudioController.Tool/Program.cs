@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Threading;
+using AudioController.Core;
 
 namespace AudioController.Tool
 {

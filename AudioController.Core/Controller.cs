@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NAudio.CoreAudioApi;
 
-namespace AudioController
+namespace AudioController.Core
 {
     public static class Controller
     {
