@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController", "AudioCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Cmd", "AudioController.Cmd\AudioController.Cmd.csproj", "{B89CECE6-35BB-4195-8065-3A3598E0996F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Tool", "AudioController.Tool\AudioController.Tool.csproj", "{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B89CECE6-35BB-4195-8065-3A3598E0996F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B89CECE6-35BB-4195-8065-3A3598E0996F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B89CECE6-35BB-4195-8065-3A3598E0996F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58BDB72E-8462-44A0-84D5-C0BAA7BD54BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,3 +3,5 @@ AudioController.Cmd/obj/*
 AudioController/bin/*
 AudioController/obj/*
 *.suo
+AudioController.Tool/bin/*
+AudioController.Tool/obj/*
