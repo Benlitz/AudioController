@@ -5,3 +5,4 @@ AudioController/obj/*
 *.suo
 AudioController.Tool/bin/*
 AudioController.Tool/obj/*
+*.user

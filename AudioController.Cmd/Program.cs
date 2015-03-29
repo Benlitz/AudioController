@@ -7,7 +7,7 @@ namespace AudioController.Cmd
     {
         private static void Main(string[] args)
         {
-            var devices = AudioController.GetDevices().ToList();
+            var devices = Controller.GetDevices().ToList();
             Console.WriteLine("Enter the corresponding number to change the default audio device:");
             for (int i = 0; i < devices.Count; ++i)
             {
@@ -18,7 +18,7 @@ namespace AudioController.Cmd
             int deviceId;
             if (int.TryParse(answer, out deviceId) && deviceId >= 0 && deviceId < devices.Count)
             {
-                var result = AudioController.SetAsDefault(devices[deviceId]);
+                var result = Controller.SetAsDefault(devices[deviceId]);
                 if (result)
                     Console.WriteLine("Default audio device successfully changed to {0}.", devices[deviceId]);
                 else

@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace AudioController.Tool
 {
@@ -21,6 +22,11 @@ namespace AudioController.Tool
         public MainWindow()
         {
             InitializeComponent();
+            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(10)};
+            timer.Tick += (sender, args) => Hide();
+            timer.Start();
         }
+
+        public string DeviceName { get; set; }
     }
 }

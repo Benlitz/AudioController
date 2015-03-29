@@ -1,6 +1,8 @@
-﻿namespace AudioController
+﻿using System;
+
+namespace AudioController
 {
-    public class Device
+    public class Device : IEquatable<Device>
     {
         internal Device(string name, string id)
         {
@@ -11,5 +13,21 @@
         public string Name { get; private set; }
      
         internal string Id { get; private set; }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as Device;
+            return other != null && other.Id == Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public bool Equals(Device other)
+        {
+            return other != null && other.Id == Id;
+        }
     }
 }

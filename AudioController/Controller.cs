@@ -6,13 +6,20 @@ using NAudio.CoreAudioApi;
 
 namespace AudioController
 {
-    public static class AudioController
+    public static class Controller
     {
         public static IEnumerable<Device> GetDevices()
         {
             var enumerator = new MMDeviceEnumerator();
             MMDeviceCollection endpoints = enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.All);
             return endpoints.Where(x => x.State == DeviceState.Active).Select(device => new Device(device.FriendlyName, device.ID)).ToList();
+        }
+
+        public static Device GetDefaultDevice()
+        {
+            var enumerator = new MMDeviceEnumerator();
+            var mmDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
+            return new Device(mmDevice.FriendlyName, mmDevice.ID);
         }
 
         public static bool SetAsDefault(Device device)
