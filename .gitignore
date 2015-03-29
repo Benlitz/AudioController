@@ -6,3 +6,5 @@ AudioController/obj/*
 AudioController.Tool/bin/*
 AudioController.Tool/obj/*
 *.user
+AudioController.Core/bin/*
+AudioController.Core/obj/*

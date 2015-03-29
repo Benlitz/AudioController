@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController", "AudioController\AudioController.csproj", "{31A2D432-322E-4F9E-B1D1-E7678539046D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Core", "AudioController.Core\AudioController.Core.csproj", "{31A2D432-322E-4F9E-B1D1-E7678539046D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioController.Cmd", "AudioController.Cmd\AudioController.Cmd.csproj", "{B89CECE6-35BB-4195-8065-3A3598E0996F}"
 EndProject

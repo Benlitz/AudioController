@@ -7,8 +7,8 @@
     <ProjectGuid>{31A2D432-322E-4F9E-B1D1-E7678539046D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AudioController</RootNamespace>
-    <AssemblyName>AudioController</AssemblyName>
+    <RootNamespace>AudioController.Core</RootNamespace>
+    <AssemblyName>AudioController.Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
