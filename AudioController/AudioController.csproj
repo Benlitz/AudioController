@@ -64,6 +64,7 @@
     <Compile Include="HotKey.cs" />
     <Compile Include="Native.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="SettingsViewModel.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>

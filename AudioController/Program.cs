@@ -11,10 +11,11 @@ namespace AudioController
 {
     public static class Program
     {
-        private static readonly HotKey Hook = new HotKey();
+        private static readonly HotKey HotKey = new HotKey();
         private static App app;
         private static MainWindow mainWindow;
         private static Dispatcher dispatcher;
+        private static SettingsWindow settingsWindow;
 
         [STAThread]
         [DebuggerNonUserCode]
@@ -29,12 +30,14 @@ namespace AudioController
                 Icon = Properties.Resources.Icon,
                 ContextMenu = new WinForms.ContextMenu(new[]
                 {
+                    new WinForms.MenuItem("Settings", (s, e) => ShowSettings()),
+                    new WinForms.MenuItem("-"),
                     new WinForms.MenuItem("Exit", (s, e) => app.Shutdown()),
                 })
             };
-
-            Hook.Initialize();
-            Hook.HotKeyTriggered += SwitchAudioOutput;
+            notifyIcon.DoubleClick += (s, e) => ShowSettings();
+            HotKey.Initialize();
+            HotKey.HotKeyTriggered += SwitchAudioOutput;
             try
             {
                 app = new App {ShutdownMode = ShutdownMode.OnExplicitShutdown};
@@ -44,8 +47,19 @@ namespace AudioController
             }
             finally
             {
-                Hook.Dispose();
+                HotKey.Dispose();
             }
+        }
+
+        private static void ShowSettings()
+        {
+            if (settingsWindow == null)
+            {
+                settingsWindow = new SettingsWindow(HotKey);
+                settingsWindow.Closed += (s, e) => settingsWindow = null;
+                settingsWindow.Show();
+            }
+            settingsWindow.Activate();
         }
 
         private static void SwitchAudioOutput(object sender, EventArgs e)
