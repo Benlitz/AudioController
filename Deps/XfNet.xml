@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XfNet</name>
+    </assembly>
+    <members>
+        <member name="T:XfNet.Extensions.DictionaryExtensions">
+            <summary>
+            This static class contains extension methods that can be used on <see cref="!:IDictionary&lt;T&gt;"/> instances.
+            </summary>
+        </member>
+        <member name="M:XfNet.Extensions.DictionaryExtensions.AddRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Adds the entries contained in the given sequence to the given dictionary.
+            </summary>
+            <typeparam name="TKey">The type of the keys contained in the dictionary and the sequence of entries.</typeparam>
+            <typeparam name="TValue">The type of the values contained in the dictionary and the sequence of entries.</typeparam>
+            <param name="dictionary">The dictionary in which to add entries.</param>
+            <param name="entries">The entries to add to the dictionary.</param>
+        </member>
+        <member name="M:XfNet.Extensions.DictionaryExtensions.Merge``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+            <summary>
+            Merges the entries contained in the given sequence into the given dictionary.
+            </summary>
+            <typeparam name="TKey">The type of the keys contained in the dictionary and the sequence of entries.</typeparam>
+            <typeparam name="TValue">The type of the values contained in the dictionary and the sequence of entries.</typeparam>
+            <param name="dictionary">The dictionary in which to add entries.</param>
+            <param name="entries">The entries to merge into the dictionary.</param>
+        </member>
+        <member name="T:XfNet.EnumerableExtensions">
+            <summary>
+            This static class contains extension methods that can be used on <see cref="T:System.Collections.Generic.IEnumerable`1"/> instances.
+            </summary>
+        </member>
+        <member name="M:XfNet.EnumerableExtensions.Foreach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Executes an action for each element of the given sequence.
+            </summary>
+            <typeparam name="T">The type of objects in the sequence.</typeparam>
+            <param name="enumerable">The sequence to enumerate.</param>
+            <param name="action">The action to execute on each item.</param>
+        </member>
+        <member name="M:XfNet.EnumerableExtensions.NotNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Filters a sequence of values by excluding values that are <c>null</c>.
+            </summary>
+            <typeparam name="T">The type of objects in the sequence.</typeparam>
+            <param name="enumerable">The sequence to filter.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing the non-null values from the given sequence.</returns>
+        </member>
+        <member name="T:XfNet.ObjectExtensions">
+            <summary>
+            This static class contains extension methods that can be used on any object.
+            </summary>
+        </member>
+        <member name="M:XfNet.ObjectExtensions.SafeArg``1(``0,System.String)">
+            <summary>
+            Checks that the given object is not null, and throws an exception otherwise.
+            </summary>
+            <typeparam name="T">The type of the object to check.</typeparam>
+            <param name="obj">The object to check.</param>
+            <param name="argumentName">The name of the argument containg the object to check.</param>
+            <returns>The given object itself.</returns>
+            <exception cref="T:System.ArgumentNullException">The given object is null.</exception>
+        </member>
+        <member name="M:XfNet.ObjectExtensions.Yield(System.Object)">
+            <summary>
+            Returns a sequence of values containing only the given object.
+            </summary>
+            <param name="obj">The object to yield.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing the given object.</returns>
+            <remarks>This method uses <c>yield return</c> to return an <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance.</remarks>
+        </member>
+    </members>
+</doc>

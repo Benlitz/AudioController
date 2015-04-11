@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WpfEx.ViewModels</name>
+    </assembly>
+    <members>
+        <member name="T:WpfEx.ViewModels.ViewModel">
+            <summary>
+            A simple view model class implementing the <see cref="T:System.ComponentModel.INotifyPropertyChanging"/>
+            and the <see cref="T:System.ComponentModel.INotifyPropertyChanged"/> interfaces, and providing helper
+            methods to properly invoke their related events.
+            </summary>
+        </member>
+        <member name="M:WpfEx.ViewModels.ViewModel.SetValue``1(``0@,``0,System.String)">
+            <summary>
+            Sets the given value to the given field, raising the <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanging"/> and the
+            <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanged"/> event if the field and the value were not equal.
+            </summary>
+            <typeparam name="T">The type of field to write.</typeparam>
+            <param name="field">The field to write.</param>
+            <param name="value">The value to set.</param>
+            <param name="propertyName">The name of the property to set.</param>
+        </member>
+        <member name="M:WpfEx.ViewModels.ViewModel.SetValue``1(``0@,``0,System.Action,System.String)">
+            <summary>
+            Sets the given value to the given field, raising the <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanging"/> and the
+            <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanged"/> event if the field and the value were not equal.
+            </summary>
+            <typeparam name="T">The type of field to write.</typeparam>
+            <param name="field">The field to write.</param>
+            <param name="value">The value to set.</param>
+            <param name="update">An action to execute if the field is modified. It is executed after the modification but before raising <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanged"/>.</param>
+            <param name="propertyName">The name of the property to set.</param>
+        </member>
+        <member name="M:WpfEx.ViewModels.ViewModel.OnPropertyChanging(System.String[])">
+            <summary>
+            Raises the <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanging"/> event for each given properties.
+            </summary>
+            <param name="propertyNames">The names of the properties for which to raise the <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanging"/> event.</param>
+        </member>
+        <member name="M:WpfEx.ViewModels.ViewModel.OnPropertyChanged(System.String[])">
+            <summary>
+            Raises the <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanged"/> event for each given properties.
+            </summary>
+            <param name="propertyNames">The names of the properties for which to raise the <see cref="E:WpfEx.ViewModels.ViewModel.PropertyChanged"/> event.</param>
+        </member>
+        <member name="E:WpfEx.ViewModels.ViewModel.PropertyChanging">
+            <inheritdoc/>
+        </member>
+        <member name="E:WpfEx.ViewModels.ViewModel.PropertyChanged">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
