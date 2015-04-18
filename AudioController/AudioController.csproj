@@ -52,6 +52,9 @@
     <Reference Include="WpfEx.ViewModels">
       <HintPath>..\Deps\WpfEx.ViewModels.dll</HintPath>
     </Reference>
+    <Reference Include="WpfEx.Views">
+      <HintPath>..\Deps\WpfEx.Views.dll</HintPath>
+    </Reference>
     <Reference Include="XfNet">
       <HintPath>..\Deps\XfNet.dll</HintPath>
     </Reference>

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace AudioController
@@ -14,8 +15,14 @@ namespace AudioController
             InitializeComponent();
         }
 
+        public SettingsViewModel ViewModel { get { return (SettingsViewModel)DataContext; } }
+
         private void CommandBindingClose(object sender, ExecutedRoutedEventArgs e)
         {
+            if (e.Parameter != null && (bool)e.Parameter)
+            {
+                ViewModel.ApplySettings();
+            }
             Close();
         }
     }

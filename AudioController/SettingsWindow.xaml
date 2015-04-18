@@ -1,13 +1,17 @@
 ﻿<Window x:Class="AudioController.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wx="http://schemas.wpfex.com/xaml/presentation"
         Title="SettingsWindow" Height="480" Width="640">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CommandBindingClose"/>
     </Window.CommandBindings>
     <DockPanel>
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Command="ApplicationCommands.Close" Margin="40,20" Content="Close" Width="80"/>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="40,20">
+            <Button Command="ApplicationCommands.Close" CommandParameter="{wx:Bool False}"
+                    Content="Cancel" Width="80" Margin="0,0,20,0"/>
+            <Button Command="ApplicationCommands.Close" CommandParameter="{wx:Bool True}"
+                    Content="Close" Width="80"/>
         </StackPanel>
         <GroupBox Header="Hot key" Margin="40">
             <Grid Margin="20">
@@ -22,7 +26,8 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Modifier keys:" VerticalAlignment="Center"></TextBlock>
-                <WrapPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <WrapPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal"
+                           HorizontalAlignment="Left" VerticalAlignment="Center">
                     <CheckBox IsChecked="{Binding ModifierCtrl}" Content="Control" Margin="16,0"/>
                     <CheckBox IsChecked="{Binding ModifierShift}" Content="Shift" Margin="16,0"/>
                     <CheckBox IsChecked="{Binding ModifierAlt}" Content="Alt" Margin="16,0"/>
