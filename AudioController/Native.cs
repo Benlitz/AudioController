@@ -27,7 +27,7 @@ namespace AudioController
     }
 
     [Flags]
-    internal enum Modifier : uint
+    public enum Modifier : uint
     {
         MOD_ALT = 0x1,
         MOD_CONTROL = 0x2,

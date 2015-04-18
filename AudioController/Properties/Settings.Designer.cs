@@ -22,5 +22,17 @@ namespace AudioController.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MOD_WIN")]
+        public string Modifiers {
+            get {
+                return ((string)(this["Modifiers"]));
+            }
+            set {
+                this["Modifiers"] = value;
+            }
+        }
     }
 }

@@ -19,10 +19,10 @@ namespace AudioController
         {
             if (hotKey == null) throw new ArgumentNullException("hotKey");
             this.hotKey = hotKey;
-            modifierCtrl = (hotKey.Modifiers & Modifier.MOD_CONTROL) == Modifier.MOD_CONTROL;
-            modifierShift = (hotKey.Modifiers & Modifier.MOD_SHIFT) == Modifier.MOD_SHIFT;
-            modifierAlt = (hotKey.Modifiers & Modifier.MOD_ALT) == Modifier.MOD_ALT;
-            modifierWin = (hotKey.Modifiers & Modifier.MOD_WIN) == Modifier.MOD_WIN;
+            modifierCtrl = (Settings.Modifiers & Modifier.MOD_CONTROL) == Modifier.MOD_CONTROL;
+            modifierShift = (Settings.Modifiers & Modifier.MOD_SHIFT) == Modifier.MOD_SHIFT;
+            modifierAlt = (Settings.Modifiers & Modifier.MOD_ALT) == Modifier.MOD_ALT;
+            modifierWin = (Settings.Modifiers & Modifier.MOD_WIN) == Modifier.MOD_WIN;
         }
 
         /// <summary>
@@ -50,10 +50,10 @@ namespace AudioController
         /// </summary>
         public void ApplySettings()
         {
-            hotKey.Modifiers = SetFlag(hotKey.Modifiers, Modifier.MOD_CONTROL, ModifierCtrl);
-            hotKey.Modifiers = SetFlag(hotKey.Modifiers, Modifier.MOD_SHIFT, ModifierShift);
-            hotKey.Modifiers = SetFlag(hotKey.Modifiers, Modifier.MOD_ALT, ModifierAlt);
-            hotKey.Modifiers = SetFlag(hotKey.Modifiers, Modifier.MOD_WIN, ModifierWin);
+            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_CONTROL, ModifierCtrl);
+            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_SHIFT, ModifierShift);
+            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_ALT, ModifierAlt);
+            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_WIN, ModifierWin);
             hotKey.Update();
         }
 
