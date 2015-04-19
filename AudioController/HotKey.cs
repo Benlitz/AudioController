@@ -9,14 +9,14 @@ namespace AudioController
 
         public void Initialize()
         {
-            Import.RegisterHotKey(IntPtr.Zero, GetHashCode(), Settings.Modifiers, VK.KEY_O);
+            Import.RegisterHotKey(IntPtr.Zero, GetHashCode(), Settings.Modifiers, Settings.Key);
             ComponentDispatcher.ThreadPreprocessMessage += ComponentDispatcherThreadPreprocessMessage;
         }
 
         public void Update()
         {
             Import.UnregisterHotKey(IntPtr.Zero, GetHashCode());
-            Import.RegisterHotKey(IntPtr.Zero, GetHashCode(), Settings.Modifiers, VK.KEY_O);      
+            Import.RegisterHotKey(IntPtr.Zero, GetHashCode(), Settings.Modifiers, Settings.Key);      
         }
 
         public void Dispose()

@@ -17,15 +17,6 @@ namespace AudioController
         WM_HOTKEY = 0x0312,
     }
 
-    // NOTE: This enum is incomplete
-    internal enum VK
-    {
-        KEY_I = 0x49,
-        KEY_O = 0x4F,
-        LWIN = 0x5B,
-        RWIN = 0x5C,
-    }
-
     [Flags]
     public enum Modifier : uint
     {
@@ -39,7 +30,7 @@ namespace AudioController
     {
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool RegisterHotKey(IntPtr hWnd, int id, Modifier fsModifiers, VK vk);
+        internal static extern bool RegisterHotKey(IntPtr hWnd, int id, Modifier fsModifiers, VirtualKey vk);
 
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]

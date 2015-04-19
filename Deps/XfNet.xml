@@ -4,12 +4,12 @@
         <name>XfNet</name>
     </assembly>
     <members>
-        <member name="T:XfNet.Extensions.DictionaryExtensions">
+        <member name="T:XfNet.DictionaryExtensions">
             <summary>
             This static class contains extension methods that can be used on <see cref="!:IDictionary&lt;T&gt;"/> instances.
             </summary>
         </member>
-        <member name="M:XfNet.Extensions.DictionaryExtensions.AddRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+        <member name="M:XfNet.DictionaryExtensions.AddRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
             <summary>
             Adds the entries contained in the given sequence to the given dictionary.
             </summary>
@@ -18,7 +18,7 @@
             <param name="dictionary">The dictionary in which to add entries.</param>
             <param name="entries">The entries to add to the dictionary.</param>
         </member>
-        <member name="M:XfNet.Extensions.DictionaryExtensions.Merge``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
+        <member name="M:XfNet.DictionaryExtensions.Merge``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{``0,``1}})">
             <summary>
             Merges the entries contained in the given sequence into the given dictionary.
             </summary>
@@ -70,6 +70,19 @@
             <param name="obj">The object to yield.</param>
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing the given object.</returns>
             <remarks>This method uses <c>yield return</c> to return an <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance.</remarks>
+        </member>
+        <member name="T:XfNet.TypeExtensions">
+            <summary>
+            This static class contains extension methods that can be used on <see cref="T:System.Type"/> instances.
+            </summary>
+        </member>
+        <member name="M:XfNet.TypeExtensions.IsInstanceAssignable(System.Type,System.Object)">
+            <summary>
+            Indicates whether the given object can be assigned to a reference of the given type.
+            </summary>
+            <param name="type">The type to match.</param>
+            <param name="value">The object to check.</param>
+            <returns><c>true</c> if <see cref="!:value"/> is an instance of the given <see cref="T:System.Type"/>, or if the type is not a value type and the value is null. Otherwise, <c>false</c></returns>
         </member>
     </members>
 </doc>

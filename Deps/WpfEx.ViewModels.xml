@@ -4,6 +4,52 @@
         <name>WpfEx.ViewModels</name>
     </assembly>
     <members>
+        <member name="T:WpfEx.ViewModels.AnonymousCommand">
+            <summary>
+            An implementation of the <see cref="T:WpfEx.ViewModels.Command"/> class that allows to create command from anonymous <see cref="T:System.Action"/>.
+            </summary>
+        </member>
+        <member name="T:WpfEx.ViewModels.Command">
+            <summary>
+            An abstract class representing a command. This method implements <see cref="T:System.Windows.Input.ICommand"/>. It uses a boolean
+            <see cref="P:WpfEx.ViewModels.Command.IsEnabled"/> property to control whether this commmand can be executed currently.
+            </summary>
+        </member>
+        <member name="M:WpfEx.ViewModels.Command.CanExecute(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.ViewModels.Command.Execute(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.ViewModels.Command.OnCanExecuteChanged">
+            <summary>
+            Raises the <see cref="E:WpfEx.ViewModels.Command.CanExecuteChanged"/> event.
+            </summary>
+        </member>
+        <member name="P:WpfEx.ViewModels.Command.IsEnabled">
+            <summary>
+            Gets or sets whether this command is currently enabled.
+            </summary>
+            <remarks>The default value is <c>true</c>. Writting this property will raise <see cref="E:WpfEx.ViewModels.Command.CanExecuteChanged"/>.</remarks>
+        </member>
+        <member name="E:WpfEx.ViewModels.Command.CanExecuteChanged">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.ViewModels.AnonymousCommand.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.ViewModels.AnonymousCommand"/> class with a parameterless <see cref="T:System.Action"/>.
+            </summary>
+            <param name="action">The action to execute when this command is invoked.</param>
+        </member>
+        <member name="M:WpfEx.ViewModels.AnonymousCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.ViewModels.AnonymousCommand"/> class with an <see cref="T:System.Action`1"/>.
+            </summary>
+            <param name="action">The action to execute when this command is invoked.</param>
+        </member>
+        <member name="M:WpfEx.ViewModels.AnonymousCommand.Execute(System.Object)">
+            <inheritdoc/>
+        </member>
         <member name="T:WpfEx.ViewModels.ViewModel">
             <summary>
             A simple view model class implementing the <see cref="T:System.ComponentModel.INotifyPropertyChanging"/>

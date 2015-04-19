@@ -1,0 +1,591 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WpfEx.Views</name>
+    </assembly>
+    <members>
+        <member name="T:WpfEx.Views.Properties.Exceptions">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.ConvertBackNotSupportedValueConverter">
+            <summary>
+              Looks up a localized string similar to This value converter does not support ConvertBack method..
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.WrongGenericArgumentValueConverter">
+            <summary>
+              Looks up a localized string similar to The generic argument of this ValueConverter must be the type of the implemented class..
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.WrongParameterTypeTypedValueConverter">
+            <summary>
+              Looks up a localized string similar to The parameter passed to this TypedValueConverter does not match the parameter type..
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.WrongTargetTypeTypedConverter">
+            <summary>
+              Looks up a localized string similar to The target type passed to this TypedValueConverter does not match the output type..
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.Properties.Exceptions.WrongValueTypeTypedConverter">
+            <summary>
+              Looks up a localized string similar to The value passed to this TypedValueConverter does not match the input type..
+            </summary>
+        </member>
+        <member name="T:WpfEx.Views.BoolExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Boolean"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.BoolExtension.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.BoolExtension"/> class.
+            </summary>
+            <param name="value">The boolean value.</param>
+        </member>
+        <member name="M:WpfEx.Views.BoolExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.ByteExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Byte"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.ByteExtension.#ctor(System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ByteExtension"/> class.
+            </summary>
+            <param name="value">The byte value.</param>
+        </member>
+        <member name="M:WpfEx.Views.ByteExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.CharExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Char"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.CharExtension.#ctor(System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.CharExtension"/> class.
+            </summary>
+            <param name="value">The char value.</param>
+        </member>
+        <member name="M:WpfEx.Views.CharExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.DecimalExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Decimal"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.DecimalExtension.#ctor(System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.DecimalExtension"/> class.
+            </summary>
+            <param name="value">The decimal value.</param>
+        </member>
+        <member name="M:WpfEx.Views.DecimalExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.DoubleExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Double"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.DoubleExtension.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.DoubleExtension"/> class.
+            </summary>
+            <param name="value">The double value.</param>
+        </member>
+        <member name="M:WpfEx.Views.DoubleExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.FloatExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Single"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.FloatExtension.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.FloatExtension"/> class.
+            </summary>
+            <param name="value">The float value.</param>
+        </member>
+        <member name="M:WpfEx.Views.FloatExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.IntExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Int32"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.IntExtension.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.IntExtension"/> class.
+            </summary>
+            <param name="value">The int value.</param>
+        </member>
+        <member name="M:WpfEx.Views.IntExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.LongExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Int64"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.LongExtension.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.LongExtension"/> class.
+            </summary>
+            <param name="value">The long value.</param>
+        </member>
+        <member name="M:WpfEx.Views.LongExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.SByteExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.SByte"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.SByteExtension.#ctor(System.SByte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.SByteExtension"/> class.
+            </summary>
+            <param name="value">The sbyte value.</param>
+        </member>
+        <member name="M:WpfEx.Views.SByteExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.ShortExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.Int16"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.ShortExtension.#ctor(System.Int16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ShortExtension"/> class.
+            </summary>
+            <param name="value">The short value.</param>
+        </member>
+        <member name="M:WpfEx.Views.ShortExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.UIntExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.UInt32"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.UIntExtension.#ctor(System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.UIntExtension"/> class.
+            </summary>
+            <param name="value">The uint value.</param>
+        </member>
+        <member name="M:WpfEx.Views.UIntExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.ULongExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.UInt64"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.ULongExtension.#ctor(System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ULongExtension"/> class.
+            </summary>
+            <param name="value">The ulong value.</param>
+        </member>
+        <member name="M:WpfEx.Views.ULongExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.UShortExtension">
+            <summary>
+            A markup extension that provides a <see cref="T:System.UInt16"/> value.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.UShortExtension.#ctor(System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.UShortExtension"/> class.
+            </summary>
+            <param name="value">The ushort value.</param>
+        </member>
+        <member name="M:WpfEx.Views.UShortExtension.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.ValueConverters.Chain">
+            <summary>
+            A converter that allows to chain multiple converters together.
+            </summary>
+        </member>
+        <member name="T:WpfEx.Views.ValueConverters.ValueConverter`1">
+            <summary>
+            A base abstract class to implement value converters. It implements the <see cref="T:System.Windows.Data.IValueConverter"/> interface and provides
+            overridable methods to check arguments and convert values. This class inherits from <see cref="T:System.Windows.Markup.MarkupExtension"/> to allow
+            converters to be inlined directly as markup extension. Only a single instance of each type of converter will exist so the
+            implementations of this class must remains stateless objects.
+            </summary>
+            <typeparam name="T">The type of value converter being implemented.</typeparam>
+        </member>
+        <member name="F:WpfEx.Views.ValueConverters.ValueConverter`1.instance">
+            <summary>
+            The single instance of value converter for the given type.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.ValueConverter`1"/> class.
+            </summary>
+            <exception cref="T:System.ArgumentException">The generic parameter does not match the type of converter being instanced.</exception>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.ProvideValue(System.IServiceProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.VerifyConvertArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Verifies that the arguments of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method are correct. This method does not return
+            any result, it simply throw exceptions when the arguments are incorrect.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.VerifyConvertBackArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Verifies that the arguments of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method are correct. This method does not return
+            any result, it simply throw exceptions when the arguments are incorrect.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.ProcessConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            This method actually process the conversion. It assumes that <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.VerifyConvertArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> has been
+            invoked and that the arguments are correct.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.ValueConverter`1.ProcessBackwardConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            This method actually process the back conversion. It assumes that <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.VerifyConvertBackArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> has
+            been invoked and that the arguments are correct.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="F:WpfEx.Views.ValueConverters.Chain.MaxChainedConverter">
+            <summary>
+            The maximum number of converters that can be chained
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+            <param name="converter3">The third value converter to chain.</param>
+            <param name="converter4">The fourth value converter to chain.</param>
+            <param name="converter5">The fifth value converter to chain.</param>
+            <param name="converter6">The sixth value converter to chain.</param>
+            <param name="converter7">The seventh value converter to chain.</param>
+            <param name="converter8">The eighth value converter to chain.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+            <param name="converter3">The third value converter to chain.</param>
+            <param name="converter4">The fourth value converter to chain.</param>
+            <param name="converter5">The fifth value converter to chain.</param>
+            <param name="converter6">The sixth value converter to chain.</param>
+            <param name="converter7">The seventh value converter to chain.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+            <param name="converter3">The third value converter to chain.</param>
+            <param name="converter4">The fourth value converter to chain.</param>
+            <param name="converter5">The fifth value converter to chain.</param>
+            <param name="converter6">The sixth value converter to chain.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+            <param name="converter3">The third value converter to chain.</param>
+            <param name="converter4">The fourth value converter to chain.</param>
+            <param name="converter5">The fifth value converter to chain.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+            <param name="converter3">The third value converter to chain.</param>
+            <param name="converter4">The fourth value converter to chain.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+            <param name="converter3">The third value converter to chain.</param>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.Chain.#ctor(System.Windows.Data.IValueConverter,System.Windows.Data.IValueConverter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WpfEx.Views.ValueConverters.Chain"/> class.
+            </summary>
+            <param name="converter1">The first value converter to chain.</param>
+            <param name="converter2">The second value converter to chain.</param>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter1">
+            <summary>
+            Gets or sets the first converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter2">
+            <summary>
+            Gets or sets the second converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter3">
+            <summary>
+            Gets or sets the third converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter4">
+            <summary>
+            Gets or sets the fourth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter5">
+            <summary>
+            Gets or sets the fifth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter6">
+            <summary>
+            Gets or sets the sixth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter7">
+            <summary>
+            Gets or sets the seventh converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Converter8">
+            <summary>
+            Gets or sets the eighth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter1">
+            <summary>
+            Gets or sets the parameter of the first converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter2">
+            <summary>
+            Gets or sets the parameter of the second converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter3">
+            <summary>
+            Gets or sets the parameter of the third converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter4">
+            <summary>
+            Gets or sets the parameter of the fourth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter5">
+            <summary>
+            Gets or sets the parameter of the fifth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter6">
+            <summary>
+            Gets or sets the parameter of the sixth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter7">
+            <summary>
+            Gets or sets the parameter of the seventh converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.Parameter8">
+            <summary>
+            Gets or sets the parameter of the eighth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType1">
+            <summary>
+            Gets or sets the target type of the first converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType2">
+            <summary>
+            Gets or sets the target type of the second converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType3">
+            <summary>
+            Gets or sets the target type of the third converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType4">
+            <summary>
+            Gets or sets the target type of the fourth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType5">
+            <summary>
+            Gets or sets the target type of the fifth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType6">
+            <summary>
+            Gets or sets the target type of the sixth converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType7">
+            <summary>
+            Gets or sets the target type of the seventh converter to chain.
+            </summary>
+        </member>
+        <member name="P:WpfEx.Views.ValueConverters.Chain.TargetType8">
+            <summary>
+            Gets or sets the target type of the eighth converter to chain.
+            </summary>
+        </member>
+        <member name="T:WpfEx.Views.ValueConverters.OneWayTypedValueConverter`4">
+            <summary>
+            An abstract implementation of the <see cref="T:WpfEx.Views.ValueConverters.OneWayValueConverter`1"/> class that automatically performs type verifications
+            on the conversion arguments.
+            </summary>
+            <typeparam name="TConverter">The type of value converter being implemented.</typeparam>
+            <typeparam name="TInValue">The type of input values for this converter.</typeparam>
+            <typeparam name="TOutValue">The type of output values for this converter.</typeparam>
+            <typeparam name="TParam">The type of parameter for this converter.</typeparam>
+        </member>
+        <member name="T:WpfEx.Views.ValueConverters.OneWayValueConverter`1">
+            <summary>
+            An abstract implementation of the <see cref="T:WpfEx.Views.ValueConverters.ValueConverter`1"/> class that does not support <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/>
+            operations and will throw a <see cref="T:System.NotSupportedException"/> if <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> is invoked.
+            </summary>
+            <typeparam name="T">The type of value converter being implemented.</typeparam>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.OneWayValueConverter`1.VerifyConvertBackArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.OneWayValueConverter`1.ProcessBackwardConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.OneWayTypedValueConverter`4.ProcessTypedConversion(`1,System.Type,`3,System.Globalization.CultureInfo)">
+            <summary>
+            This method actually process the conversion. It assumes that <see cref="M:WpfEx.Views.ValueConverters.OneWayTypedValueConverter`4.VerifyConvertArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> has been
+            invoked and that the arguments are correct.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.OneWayTypedValueConverter`4.VerifyConvertArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.OneWayTypedValueConverter`4.ProcessConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.ValueConverters.TypedValueConverter`4">
+            <summary>
+            An abstract implementation of the <see cref="T:WpfEx.Views.ValueConverters.ValueConverter`1"/> class that automatically performs type verifications
+            on the conversion arguments.
+            </summary>
+            <typeparam name="TConverter">The type of value converter being implemented.</typeparam>
+            <typeparam name="TInValue">The type of input values for this converter.</typeparam>
+            <typeparam name="TOutValue">The type of output values for this converter.</typeparam>
+            <typeparam name="TParam">The type of parameter for this converter.</typeparam>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.ProcessTypedConversion(`1,System.Type,`3,System.Globalization.CultureInfo)">
+            <summary>
+            This method actually process the conversion. It assumes that <see cref="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.VerifyConvertArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> has been
+            invoked and that the arguments are correct.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.ProcessTypedBackwardConversion(`2,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            This method actually process the back conversion. It assumes that <see cref="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.VerifyConvertBackArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> has
+            been invoked and that the arguments are correct.
+            </summary>
+            <param name="value">The <c>value</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="targetType">The <c>targetType</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="parameter">The <c>parameter</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <param name="culture">The <c>culture</c> argument of the <see cref="M:WpfEx.Views.ValueConverters.ValueConverter`1.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)"/> method.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.VerifyConvertArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.VerifyConvertBackArguments(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.ProcessConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ValueConverters.TypedValueConverter`4.ProcessBackwardConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

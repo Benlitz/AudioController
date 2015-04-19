@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using WpfEx.ViewModels;
 
 namespace AudioController
@@ -6,10 +8,12 @@ namespace AudioController
     public class SettingsViewModel : ViewModel
     {
         private readonly HotKey hotKey;
+        private readonly List<VirtualKey> availableKeys;
         private bool modifierCtrl;
         private bool modifierShift;
         private bool modifierAlt;
         private bool modifierWin;
+        private VirtualKey key;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -19,10 +23,20 @@ namespace AudioController
         {
             if (hotKey == null) throw new ArgumentNullException("hotKey");
             this.hotKey = hotKey;
-            modifierCtrl = (Settings.Modifiers & Modifier.MOD_CONTROL) == Modifier.MOD_CONTROL;
-            modifierShift = (Settings.Modifiers & Modifier.MOD_SHIFT) == Modifier.MOD_SHIFT;
-            modifierAlt = (Settings.Modifiers & Modifier.MOD_ALT) == Modifier.MOD_ALT;
-            modifierWin = (Settings.Modifiers & Modifier.MOD_WIN) == Modifier.MOD_WIN;
+            var modifiers = Settings.Modifiers;
+            modifierCtrl = (modifiers & Modifier.MOD_CONTROL) == Modifier.MOD_CONTROL;
+            modifierShift = (modifiers & Modifier.MOD_SHIFT) == Modifier.MOD_SHIFT;
+            modifierAlt = (modifiers & Modifier.MOD_ALT) == Modifier.MOD_ALT;
+            modifierWin = (modifiers & Modifier.MOD_WIN) == Modifier.MOD_WIN;
+            availableKeys = new List<VirtualKey>(Enum.GetValues(typeof(VirtualKey)).Cast<VirtualKey>()
+                .Where(x => x >= VirtualKey.KEY_0 && x <= VirtualKey.KEY_Z));
+            var settingsKey = Settings.Key;
+            key = settingsKey;
+            //availableKeys = new List<VirtualKeyViewModel>(Enum.GetValues(typeof(VirtualKey)).Cast<VirtualKey>()
+            //    .Where(x => x >= VirtualKey.KEY_0 && x <= VirtualKey.KEY_Z)
+            //    .Select(x => new VirtualKeyViewModel(x)));
+            //var settingsKey = Settings.Key;
+            //key = availableKeys.FirstOrDefault(x => x.Key == settingsKey);
         }
 
         /// <summary>
@@ -46,14 +60,27 @@ namespace AudioController
         public bool ModifierWin { get { return modifierWin; } set { SetValue(ref modifierWin, value); } }
 
         /// <summary>
-        /// Applies the changes in the settings
+        /// Gets the collection of available keys for the hot key.
+        /// </summary>
+        public IEnumerable<VirtualKey> AvailableKeys { get { return availableKeys; } }
+
+        /// <summary>
+        /// Gets or sets the key to use in combinaison with modifiers to trigger the hot key.
+        /// </summary>
+        public VirtualKey Key { get { return key; } set { SetValue(ref key, value); } }
+
+        /// <summary>
+        /// Applies the changes in the settings.
         /// </summary>
         public void ApplySettings()
         {
-            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_CONTROL, ModifierCtrl);
-            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_SHIFT, ModifierShift);
-            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_ALT, ModifierAlt);
-            Settings.Modifiers = SetFlag(Settings.Modifiers, Modifier.MOD_WIN, ModifierWin);
+            var modifiers = (Modifier)0;
+            modifiers = SetFlag(modifiers, Modifier.MOD_CONTROL, ModifierCtrl);
+            modifiers = SetFlag(modifiers, Modifier.MOD_SHIFT, ModifierShift);
+            modifiers = SetFlag(modifiers, Modifier.MOD_ALT, ModifierAlt);
+            modifiers = SetFlag(modifiers, Modifier.MOD_WIN, ModifierWin);
+            Settings.Modifiers = modifiers;
+            Settings.Key = Key;
             hotKey.Update();
         }
 

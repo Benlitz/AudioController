@@ -5,5 +5,8 @@
     <Setting Name="Modifiers" Type="System.String" Scope="User">
       <Value Profile="(Default)">MOD_WIN</Value>
     </Setting>
+    <Setting Name="Key" Type="System.String" Scope="User">
+      <Value Profile="(Default)">KEY_O</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
