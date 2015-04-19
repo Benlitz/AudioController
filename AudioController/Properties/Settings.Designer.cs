@@ -46,5 +46,29 @@ namespace AudioController.Properties {
                 this["Key"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string IgnoreList {
+            get {
+                return ((string)(this["IgnoreList"]));
+            }
+            set {
+                this["IgnoreList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AliasList {
+            get {
+                return ((string)(this["AliasList"]));
+            }
+            set {
+                this["AliasList"] = value;
+            }
+        }
     }
 }

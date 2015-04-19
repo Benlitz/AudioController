@@ -8,5 +8,11 @@
     <Setting Name="Key" Type="System.String" Scope="User">
       <Value Profile="(Default)">KEY_O</Value>
     </Setting>
+    <Setting Name="IgnoreList" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AliasList" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

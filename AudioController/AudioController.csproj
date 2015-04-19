@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeviceViewModel.cs" />
     <Compile Include="HotKey.cs" />
     <Compile Include="Native.cs" />
     <Compile Include="Program.cs" />
@@ -74,7 +75,6 @@
     </Compile>
     <Compile Include="VirtualKey.cs" />
     <Compile Include="VirtualKeyConverter.cs" />
-    <Compile Include="VirtualKeyViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

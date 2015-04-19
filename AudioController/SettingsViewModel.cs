@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AudioController.Core;
 using WpfEx.ViewModels;
 
 namespace AudioController
@@ -9,6 +10,7 @@ namespace AudioController
     {
         private readonly HotKey hotKey;
         private readonly List<VirtualKey> availableKeys;
+        private readonly List<DeviceViewModel> devices;
         private bool modifierCtrl;
         private bool modifierShift;
         private bool modifierAlt;
@@ -32,11 +34,7 @@ namespace AudioController
                 .Where(x => x >= VirtualKey.KEY_0 && x <= VirtualKey.KEY_Z));
             var settingsKey = Settings.Key;
             key = settingsKey;
-            //availableKeys = new List<VirtualKeyViewModel>(Enum.GetValues(typeof(VirtualKey)).Cast<VirtualKey>()
-            //    .Where(x => x >= VirtualKey.KEY_0 && x <= VirtualKey.KEY_Z)
-            //    .Select(x => new VirtualKeyViewModel(x)));
-            //var settingsKey = Settings.Key;
-            //key = availableKeys.FirstOrDefault(x => x.Key == settingsKey);
+            devices = new List<DeviceViewModel>(Controller.GetDevices().Select(x => new DeviceViewModel(x)));
         }
 
         /// <summary>
@@ -69,6 +67,7 @@ namespace AudioController
         /// </summary>
         public VirtualKey Key { get { return key; } set { SetValue(ref key, value); } }
 
+        public IEnumerable<DeviceViewModel> Devices { get { return devices; } } 
         /// <summary>
         /// Applies the changes in the settings.
         /// </summary>
@@ -82,6 +81,11 @@ namespace AudioController
             Settings.Modifiers = modifiers;
             Settings.Key = Key;
             hotKey.Update();
+
+            foreach (var device in devices)
+            {
+                device.ApplySettings();
+            }
         }
 
 

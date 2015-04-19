@@ -5,8 +5,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ac="clr-namespace:AudioController"
-        mc:Ignorable="d"
-        Title="SettingsWindow" Height="480" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="SettingsWindow" Height="550" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CommandBindingClose"/>
     </Window.CommandBindings>
@@ -17,8 +17,8 @@
             <Button Command="ApplicationCommands.Close" CommandParameter="{wx:Bool False}"
                     Content="Cancel" Width="80"/>
         </StackPanel>
-        <StackPanel>
-            <GroupBox Header="Hot key" Margin="20">                
+        <DockPanel>
+            <GroupBox DockPanel.Dock="Top" Header="Hot key" Margin="20,20,20,10">                
                 <Grid Margin="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
@@ -64,8 +64,15 @@
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate>
-                                                <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" Name="Bd" SnapsToDevicePixels="True">
-                                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}" ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}" HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                                <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="{TemplateBinding Control.Padding}"
+                                                        BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}"
+                                                        Name="Bd" SnapsToDevicePixels="True">
+                                                    <ContentPresenter Content="{TemplateBinding ContentControl.Content}"
+                                                                      ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}"
+                                                                      ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
+                                                                      HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                                                      VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                                                                      SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
                                                 </Border>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -81,6 +88,32 @@
                     </ListBox>
                 </Grid>
             </GroupBox>
-        </StackPanel>
+            <GroupBox Header="Devices" Margin="20,10,20,20" x:Name="DeviceGroupBox">
+                <ItemsControl Margin="20" ItemsSource="{Binding Devices}" BorderThickness="1" BorderBrush="{Binding BorderBrush, ElementName=DeviceGroupBox}">
+                    <ItemsControl.Template>
+                        <ControlTemplate>
+                            <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="1"
+                                    BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}"
+                                    Name="Bd" SnapsToDevicePixels="True">
+                                <ScrollViewer Padding="{TemplateBinding Control.Padding}" Focusable="False" VerticalScrollBarVisibility="Auto"
+                                              HorizontalScrollBarVisibility="Auto">
+                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                </ScrollViewer>
+                            </Border>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="ac:DeviceViewModel">
+                            <DockPanel>
+                                <CheckBox DockPanel.Dock="Left" Margin="4" IsChecked="{Binding Ignore, Converter={wx:InvertBool}}"/>
+                                <!--<Button DockPanel.Dock="Right" Content="Reset name" Command="{Binding ResetCommand}"/>-->
+                                <TextBlock Text="{Binding Alias}" VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </GroupBox>
+        <!--</Grid>-->
+        </DockPanel>
     </DockPanel>
 </Window>

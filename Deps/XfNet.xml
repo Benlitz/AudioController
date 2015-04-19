@@ -63,7 +63,7 @@
             <returns>The given object itself.</returns>
             <exception cref="T:System.ArgumentNullException">The given object is null.</exception>
         </member>
-        <member name="M:XfNet.ObjectExtensions.Yield(System.Object)">
+        <member name="M:XfNet.ObjectExtensions.Yield``1(``0)">
             <summary>
             Returns a sequence of values containing only the given object.
             </summary>

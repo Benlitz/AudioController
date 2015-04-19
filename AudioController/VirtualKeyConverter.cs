@@ -1,6 +1,6 @@
 using System;
 using System.Globalization;
-using WpfEx.Views.ValueConverters;
+using WpfEx.Views;
 
 namespace AudioController
 {

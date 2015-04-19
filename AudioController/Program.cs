@@ -32,7 +32,7 @@ namespace AudioController
                 {
                     new WinForms.MenuItem("Settings", (s, e) => ShowSettings()),
                     new WinForms.MenuItem("-"),
-                    new WinForms.MenuItem("Exit", (s, e) => app.Shutdown()),
+                    new WinForms.MenuItem("Exit", (s, e) => app.Shutdown())
                 })
             };
             notifyIcon.DoubleClick += (s, e) => ShowSettings();
@@ -64,13 +64,14 @@ namespace AudioController
 
         private static void SwitchAudioOutput(object sender, EventArgs e)
         {
-            var devices = Controller.GetDevices().ToList();
+            var ignoreList = Settings.IgnoreList;
+            var devices = Controller.GetDevices().Where(x => !ignoreList.Contains(x.Name)).ToList();
+            if (devices.Count == 0)
+                return;
+
             var currentDevice = Controller.GetDefaultDevice();
             var currentIndex = devices.IndexOf(currentDevice);
-            if (currentIndex < 0)
-            {
-                throw new InvalidOperationException("Unable to retrieve the current default audio output.");
-            }
+
             var nextIndex = (currentIndex + 1) % devices.Count;
             if (nextIndex != currentIndex)
             {
