@@ -16,6 +16,7 @@ namespace AudioController
         private bool modifierAlt;
         private bool modifierWin;
         private VirtualKey key;
+        private DeviceViewModel selectedDevice;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -67,7 +68,16 @@ namespace AudioController
         /// </summary>
         public VirtualKey Key { get { return key; } set { SetValue(ref key, value); } }
 
-        public IEnumerable<DeviceViewModel> Devices { get { return devices; } } 
+        /// <summary>
+        /// Gets the collection of available devices.
+        /// </summary>
+        public IEnumerable<DeviceViewModel> Devices { get { return devices; } }
+
+        /// <summary>
+        /// Gets or sets the selected device.
+        /// </summary>
+        public DeviceViewModel SelectedDevice { get { return selectedDevice; } set { SetValue(ref selectedDevice, value); } }
+
         /// <summary>
         /// Applies the changes in the settings.
         /// </summary>

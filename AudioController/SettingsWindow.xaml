@@ -7,6 +7,9 @@
         xmlns:ac="clr-namespace:AudioController"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="SettingsWindow" Height="550" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
+    <Window.Resources>
+        <BitmapImage x:Key="ImageReset" UriSource="Resources/eraser.png"/>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CommandBindingClose"/>
     </Window.CommandBindings>
@@ -89,29 +92,41 @@
                 </Grid>
             </GroupBox>
             <GroupBox Header="Devices" Margin="20,10,20,20" x:Name="DeviceGroupBox">
-                <ItemsControl Margin="20" ItemsSource="{Binding Devices}" BorderThickness="1" BorderBrush="{Binding BorderBrush, ElementName=DeviceGroupBox}">
-                    <ItemsControl.Template>
-                        <ControlTemplate>
-                            <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="1"
-                                    BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}"
-                                    Name="Bd" SnapsToDevicePixels="True">
-                                <ScrollViewer Padding="{TemplateBinding Control.Padding}" Focusable="False" VerticalScrollBarVisibility="Auto"
-                                              HorizontalScrollBarVisibility="Auto">
-                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
-                                </ScrollViewer>
-                            </Border>
-                        </ControlTemplate>
-                    </ItemsControl.Template>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="ac:DeviceViewModel">
-                            <DockPanel>
-                                <CheckBox DockPanel.Dock="Left" Margin="4" IsChecked="{Binding Ignore, Converter={wx:InvertBool}}"/>
-                                <!--<Button DockPanel.Dock="Right" Content="Reset name" Command="{Binding ResetCommand}"/>-->
-                                <TextBlock Text="{Binding Alias}" VerticalAlignment="Center"/>
-                            </DockPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                <DockPanel Margin="20,15">
+                    <DockPanel DockPanel.Dock="Bottom" Margin="0,5"
+                               IsEnabled="{Binding SelectedDevice, Converter={wx:ObjectToBool}, TargetNullValue=False}">
+                        <TextBlock Text="Name:" DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                        <StackPanel DockPanel.Dock="Right">
+                            <Button Command="{Binding SelectedDevice.ResetCommand}">
+                                <Image Source="{StaticResource ImageReset}" Width="16" Height="16" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                            </Button>
+                        </StackPanel>
+                        <TextBox Margin="5,0" Text="{Binding SelectedDevice.Alias, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <ListBox ItemsSource="{Binding Devices}" BorderThickness="1" BorderBrush="{Binding BorderBrush, ElementName=DeviceGroupBox}"
+                             SelectedItem="{Binding SelectedDevice, Mode=TwoWay}">
+                        <ItemsControl.Template>
+                            <ControlTemplate>
+                                <Border BorderThickness="{TemplateBinding Border.BorderThickness}" Padding="1"
+                                        BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}"
+                                        Name="Bd" SnapsToDevicePixels="True">
+                                    <ScrollViewer Padding="{TemplateBinding Control.Padding}" Focusable="False" VerticalScrollBarVisibility="Auto"
+                                                  HorizontalScrollBarVisibility="Auto">
+                                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                    </ScrollViewer>
+                                </Border>
+                            </ControlTemplate>
+                        </ItemsControl.Template>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="ac:DeviceViewModel">
+                                <DockPanel>
+                                    <CheckBox DockPanel.Dock="Left" Margin="4" IsChecked="{Binding Ignore, Converter={wx:InvertBool}}"/>
+                                    <TextBlock Text="{Binding Alias}" VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
             </GroupBox>
         <!--</Grid>-->
         </DockPanel>
