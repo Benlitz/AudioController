@@ -12,7 +12,7 @@ namespace AudioController.Core
 
         public string Name { get; private set; }
      
-        internal string Id { get; private set; }
+        public string Id { get; private set; }
 
         public override bool Equals(object obj)
         {

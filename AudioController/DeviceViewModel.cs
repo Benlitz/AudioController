@@ -17,7 +17,7 @@ namespace AudioController
         {
             if (device == null) throw new ArgumentNullException("device");
             this.device = device;
-            ignore = Settings.IgnoreList.Contains(Name);
+            ignore = Settings.IgnoreList.Contains(device.Id);
             Alias = Name;
             ResetCommand = new AnonymousCommand(() => Alias = Name);
         }
@@ -33,14 +33,14 @@ namespace AudioController
         public void ApplySettings()
         {
             var ignoreList = Settings.IgnoreList;
-            if (Ignore && !ignoreList.Contains(Name))
+            if (Ignore && !ignoreList.Contains(device.Id))
             {
-                ignoreList = ignoreList.Concat(Name.Yield()).ToArray();
+                ignoreList = ignoreList.Concat(device.Id.Yield()).ToArray();
                 Settings.IgnoreList = ignoreList;
             }
-            if (!Ignore && ignoreList.Contains(Name))
+            if (!Ignore && ignoreList.Contains(device.Id))
             {
-                ignoreList = ignoreList.Where(x => x != Name).ToArray();
+                ignoreList = ignoreList.Where(x => x != device.Id).ToArray();
                 Settings.IgnoreList = ignoreList;
             }
         }
