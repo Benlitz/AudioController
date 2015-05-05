@@ -11,7 +11,7 @@ namespace AudioController
 {
     public static class Program
     {
-        private static readonly HotKey HotKey = new HotKey();
+        private static readonly HotKey hotKey = new HotKey();
         private static App app;
         private static MainWindow mainWindow;
         private static Dispatcher dispatcher;
@@ -23,6 +23,8 @@ namespace AudioController
         {
             WinForms.Application.EnableVisualStyles();
             WinForms.Application.SetCompatibleTextRenderingDefault(false);
+
+            Settings.Load();
 
             var notifyIcon = new WinForms.NotifyIcon
             {
@@ -36,8 +38,8 @@ namespace AudioController
                 })
             };
             notifyIcon.DoubleClick += (s, e) => ShowSettings();
-            HotKey.Initialize();
-            HotKey.HotKeyTriggered += SwitchAudioOutput;
+            hotKey.Initialize();
+            hotKey.HotKeyTriggered += SwitchAudioOutput;
             try
             {
                 app = new App {ShutdownMode = ShutdownMode.OnExplicitShutdown};
@@ -47,7 +49,7 @@ namespace AudioController
             }
             finally
             {
-                HotKey.Dispose();
+                hotKey.Dispose();
             }
         }
 
@@ -55,7 +57,7 @@ namespace AudioController
         {
             if (settingsWindow == null)
             {
-                settingsWindow = new SettingsWindow(HotKey);
+                settingsWindow = new SettingsWindow(hotKey);
                 settingsWindow.Closed += (s, e) => settingsWindow = null;
                 settingsWindow.Show();
             }
@@ -65,7 +67,7 @@ namespace AudioController
         private static void SwitchAudioOutput(object sender, EventArgs e)
         {
             var ignoreList = Settings.IgnoreList;
-            var devices = Controller.GetDevices().Where(x => !ignoreList.Contains(x.Name)).ToList();
+            var devices = Controller.GetDevices().Where(x => !ignoreList.Contains(x.Id)).ToList();
             if (devices.Count == 0)
                 return;
 
@@ -81,9 +83,13 @@ namespace AudioController
                     if (mainWindow != null)
                         mainWindow.Close();
 
+                    string alias;
+                    if (!Settings.Aliases.TryGetValue(devices[nextIndex].Id, out alias))
+                        alias = devices[nextIndex].Name;
+
                     mainWindow = new MainWindow
                     {
-                        DeviceName = devices[nextIndex].Name
+                        DeviceName = alias
                     };
                     mainWindow.Show();
                 }));

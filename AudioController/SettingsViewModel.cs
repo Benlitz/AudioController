@@ -90,12 +90,14 @@ namespace AudioController
             modifiers = SetFlag(modifiers, Modifier.MOD_WIN, ModifierWin);
             Settings.Modifiers = modifiers;
             Settings.Key = Key;
-            hotKey.Update();
 
             foreach (var device in devices)
             {
                 device.ApplySettings();
             }
+            Settings.Save();
+
+            hotKey.Update();
         }
 
 

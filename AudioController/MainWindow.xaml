@@ -7,7 +7,7 @@
         Background="Transparent" ShowActivated="False" ShowInTaskbar="False">
     <Border Background="LightSteelBlue" CornerRadius="40" x:Name="MainBorder" Opacity="0.85">
         <Viewbox Margin="15">
-            <TextBlock Text="{Binding DeviceName, RelativeSource={RelativeSource AncestorType=ac:MainWindow}}"/>
+            <TextBlock Text="{Binding DeviceName, RelativeSource={RelativeSource AncestorType=ac:MainWindow}, Mode=OneWay}"/>
         </Viewbox>
         <Border.Triggers>
             <EventTrigger RoutedEvent="Window.Loaded">

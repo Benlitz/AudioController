@@ -1,9 +1,7 @@
 using System;
-using System.Linq;
 using System.Windows.Input;
 using AudioController.Core;
 using WpfEx.ViewModels;
-using XfNet;
 
 namespace AudioController
 {
@@ -18,7 +16,8 @@ namespace AudioController
             if (device == null) throw new ArgumentNullException("device");
             this.device = device;
             ignore = Settings.IgnoreList.Contains(device.Id);
-            Alias = Name;
+            if (!Settings.Aliases.TryGetValue(device.Id, out alias))
+                alias = Name;
             ResetCommand = new AnonymousCommand(() => Alias = Name);
         }
 
@@ -32,17 +31,15 @@ namespace AudioController
 
         public void ApplySettings()
         {
-            var ignoreList = Settings.IgnoreList;
-            if (Ignore && !ignoreList.Contains(device.Id))
-            {
-                ignoreList = ignoreList.Concat(device.Id.Yield()).ToArray();
-                Settings.IgnoreList = ignoreList;
-            }
-            if (!Ignore && ignoreList.Contains(device.Id))
-            {
-                ignoreList = ignoreList.Where(x => x != device.Id).ToArray();
-                Settings.IgnoreList = ignoreList;
-            }
+            if (Ignore)
+                Settings.IgnoreList.Add(device.Id);
+            else
+                Settings.IgnoreList.Remove(device.Id);
+
+            if (Alias != Name)
+                Settings.Aliases[device.Id] = Alias;
+            else
+                Settings.Aliases.Remove(device.Id);
         }
     }
 }
