@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 
 // ReSharper disable CheckNamespace
@@ -26,6 +27,37 @@ namespace AudioController
         MOD_WIN = 0x8,        
     }
 
+    [Flags]
+    public enum DisplayDeviceStateFlags
+    {
+        AttachedToDesktop = 0x1,
+        MultiDriver = 0x2,
+        PrimaryDevice = 0x4,
+        MirroringDriver = 0x8,
+        VGACompatible = 0x10,
+        Removable = 0x20,
+        ModesPruned = 0x8000000,
+        Remote = 0x4000000,
+        Disconnect = 0x2000000
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    public struct DISPLAY_DEVICE
+    {
+        [MarshalAs(UnmanagedType.U4)]
+        public int cb;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+        public string DeviceName;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+        public string DeviceString;
+        [MarshalAs(UnmanagedType.U4)]
+        public DisplayDeviceStateFlags StateFlags;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+        public string DeviceID;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+        public string DeviceKey;
+    }
+
     internal class Import
     {
         [DllImport("user32.dll", SetLastError = true)]
@@ -35,5 +67,13 @@ namespace AudioController
         [DllImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetCursorPos(out Point lpPoint);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool EnumDisplayDevices(string lpDevice, uint iDevNum, ref DISPLAY_DEVICE lpDisplayDevice, uint dwFlags);
     }
 }

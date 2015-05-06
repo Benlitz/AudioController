@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using AudioController.Core;
@@ -9,12 +11,26 @@ using WpfEx.ViewModels;
 
 namespace AudioController
 {
+    public class DisplayViewModel : ViewModel
+    {
+        public DisplayViewModel(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        public int Id { get; private set; }
+
+        public string Name { get; private set; }
+    }
+
     public class SettingsViewModel : ViewModel
     {
         private readonly HotKey hotKey;
         private readonly List<VirtualKey> availableKeys;
         private readonly List<DeviceViewModel> devices;
         private readonly List<ColorViewModel> availableColors;
+        private readonly List<DisplayViewModel> availableTargetDisplay;
         private bool modifierCtrl;
         private bool modifierShift;
         private bool modifierAlt;
@@ -25,6 +41,7 @@ namespace AudioController
         private ColorViewModel textColor;
         private double opacity;
         private bool playSound;
+        private DisplayViewModel targetDisplay;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -50,6 +67,25 @@ namespace AudioController
             backgroundColor = availableColors.FirstOrDefault(x => x.Name == Settings.BackgroundColor);
             textColor = availableColors.FirstOrDefault(x => x.Name == Settings.TextColor);
             opacity = Settings.Opacity;
+            availableTargetDisplay = new List<DisplayViewModel> { new DisplayViewModel(0, "Display with mouse cursor") };
+            foreach (var screen in Screen.AllScreens)
+            {
+                string monitorName = null;
+                var displayDevice = new DISPLAY_DEVICE();
+                displayDevice.cb = Marshal.SizeOf(displayDevice);
+                if (Import.EnumDisplayDevices(screen.DeviceName, 0, ref displayDevice, 0x00000001))
+                {
+                    monitorName = displayDevice.DeviceString;
+                }
+
+                int index;
+                if (int.TryParse(screen.DeviceName.Substring(@"\\.\DISPLAY".Length), out index))
+                {
+                    var name = !string.IsNullOrEmpty(monitorName) ? string.Format("Display {0} ({1})", index, monitorName) : string.Format("Display {0}", index);
+                    availableTargetDisplay.Add(new DisplayViewModel(index, name));
+                }
+            }
+            TargetDisplay = availableTargetDisplay.FirstOrDefault(x => x.Id == Settings.DisplayOn) ?? availableTargetDisplay.FirstOrDefault();
             playSound = Settings.PlaySound;
             ApplySettingsCommand = new AnonymousCommand(ApplySettings);
         }
@@ -115,6 +151,16 @@ namespace AudioController
         public double Opacity { get { return opacity; } set { SetValue(ref opacity, value); } }
 
         /// <summary>
+        /// Gets the collection of display names on which the notification window can be displayed.
+        /// </summary>
+        public IEnumerable<DisplayViewModel> AvailableTargetDisplay { get { return availableTargetDisplay; } }
+
+        /// <summary>
+        /// Gets or sets the name of the display on which the notification window can be displayed.
+        /// </summary>
+        public DisplayViewModel TargetDisplay { get { return targetDisplay; } set { SetValue(ref targetDisplay, value); } }
+
+        /// <summary>
         /// Gets or sets whether to play a sound when the default device is changed.
         /// </summary>
         public bool PlaySound { get { return playSound; } set { SetValue(ref playSound, value); } }
@@ -139,6 +185,7 @@ namespace AudioController
             Settings.BackgroundColor = BackgroundColor != null ? BackgroundColor.Name : "";
             Settings.TextColor = TextColor != null ? TextColor.Name : "";
             Settings.Opacity = Opacity;
+            Settings.DisplayOn = TargetDisplay != null ? TargetDisplay.Id : 0;
             Settings.PlaySound = PlaySound;
             foreach (var device in devices)
             {

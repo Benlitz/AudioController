@@ -121,10 +121,10 @@ namespace AudioController.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DisplayOn {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DisplayOn {
             get {
-                return ((string)(this["DisplayOn"]));
+                return ((int)(this["DisplayOn"]));
             }
             set {
                 this["DisplayOn"] = value;

@@ -57,8 +57,7 @@ namespace AudioController
         /// <summary>
         /// Gets or sets on which display the notification window should appear.
         /// </summary>
-        // TODO: Make a proper enum!
-        public static string DisplayOn { get; set; }
+        public static int DisplayOn { get; set; }
 
         /// <summary>
         /// Gets or sets whether to display the notification window when there is a fullscreen application

@@ -26,8 +26,8 @@
     <Setting Name="Size" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0.3</Value>
     </Setting>
-    <Setting Name="DisplayOn" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="DisplayOn" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ShowInFullscreen" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

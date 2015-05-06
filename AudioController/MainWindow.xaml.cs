@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Reflection;
-using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Color = System.Windows.Media.Color;
+using Point = System.Drawing.Point;
 
 namespace AudioController
 {
@@ -17,7 +19,18 @@ namespace AudioController
             MainBorder.Background = GetBrush(Settings.BackgroundColor, Colors.LightSteelBlue);
             MainBorder.Opacity = Settings.Opacity;
             MainText.Foreground = GetBrush(Settings.TextColor, Colors.Black);
-            var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(10)};
+
+            var screen = GetTargetScreen();
+            if (screen != null)
+            {
+                var centerX = screen.Bounds.Left + screen.Bounds.Width * 0.5;
+                var centerY = screen.Bounds.Top + screen.Bounds.Height * 0.5;
+                Left = centerX - Width * 0.5;
+                Top = centerY - Height * 0.5;
+            }
+            
+            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(10) };
+
             timer.Tick += (sender, args) => Hide();
             timer.Start();
         }
@@ -36,6 +49,26 @@ namespace AudioController
             {
                 return new SolidColorBrush(fallback);
             }
+        }
+
+        private static Screen GetTargetScreen()
+        {
+            var screenId = Settings.DisplayOn;
+            if (screenId == 0)
+            {
+                Point mousePos;
+                Import.GetCursorPos(out mousePos);
+                return Screen.FromPoint(mousePos);
+            }
+            foreach (var screen in Screen.AllScreens)
+            {
+                int index;
+                if (int.TryParse(screen.DeviceName.Substring(@"\\.\DISPLAY".Length), out index) && index == screenId)
+                {
+                    return screen;
+                }
+            }
+            return null;
         }
     }
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ac="clr-namespace:AudioController"
         Title="MainWindow" Height="120" Width="600" WindowStyle="None"
-        AllowsTransparency="True" WindowStartupLocation="CenterScreen" Topmost="True"
+        AllowsTransparency="True" Topmost="True"
         Background="Transparent" ShowActivated="False" ShowInTaskbar="False">
     <Border Background="LightSteelBlue" CornerRadius="40" x:Name="MainBorder" Opacity="0.85">
         <Viewbox Margin="15">
