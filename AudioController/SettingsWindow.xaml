@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ac="clr-namespace:AudioController"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="SettingsWindow" Height="730" Width="720" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
+        Title="AudioController - Settings" Height="730" Width="720" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
     <Window.Resources>
         <BitmapImage x:Key="ImageReset" UriSource="Resources/eraser.png"/>
         <DataTemplate DataType="{x:Type ac:ColorViewModel}">
