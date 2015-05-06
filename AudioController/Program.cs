@@ -78,6 +78,10 @@ namespace AudioController
             if (nextIndex != currentIndex)
             {
                 Controller.SetAsDefault(devices[nextIndex]);
+                if (Settings.PlaySound)
+                {
+                    System.Media.SystemSounds.Beep.Play();
+                }
                 dispatcher.BeginInvoke(new Action(() =>
                 {
                     if (mainWindow != null)
