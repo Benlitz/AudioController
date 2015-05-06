@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ac="clr-namespace:AudioController"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="SettingsWindow" Height="550" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
+        Title="SettingsWindow" Height="730" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
     <Window.Resources>
         <BitmapImage x:Key="ImageReset" UriSource="Resources/eraser.png"/>
     </Window.Resources>
@@ -20,9 +20,9 @@
             <Button Command="ApplicationCommands.Close" CommandParameter="{wx:Bool False}"
                     Content="Cancel" Width="80"/>
         </StackPanel>
-        <DockPanel>
-            <GroupBox DockPanel.Dock="Top" Header="Hot key" Margin="20,20,20,10">                
-                <Grid Margin="20">
+        <DockPanel Margin="20,10">
+            <GroupBox DockPanel.Dock="Top" Header="Hot key" Margin="0,10">                
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="8*"/>
@@ -91,8 +91,40 @@
                     </ListBox>
                 </Grid>
             </GroupBox>
-            <GroupBox Header="Devices" Margin="20,10,20,20" x:Name="DeviceGroupBox">
-                <DockPanel Margin="20,15">
+            
+            <GroupBox Header="Notifications" DockPanel.Dock="Top" Margin="0,10">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Background color:" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Text color:" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Opacity:" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="2" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Size:" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="3" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Display on:" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="0" Grid.Column="3" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Show in fullscreen:" VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="1" Grid.Column="3" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Play sound:" VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="2" Grid.Column="3" Margin="10,0" VerticalAlignment="Center"/>
+                </Grid>
+            </GroupBox>
+            
+            <GroupBox Header="Devices" Margin="0,10" x:Name="DeviceGroupBox">
+                <DockPanel Margin="10">
                     <DockPanel DockPanel.Dock="Bottom" Margin="0,5"
                                IsEnabled="{Binding SelectedDevice, Converter={wx:ObjectToBool}, TargetNullValue=False}">
                         <TextBlock Text="Name:" DockPanel.Dock="Left" VerticalAlignment="Center"/>
