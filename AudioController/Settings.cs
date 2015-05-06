@@ -93,6 +93,11 @@ namespace AudioController
                 }
                 BackgroundColor = Properties.Settings.Default.BackgroundColor;
                 TextColor = Properties.Settings.Default.TextColor;
+                Opacity = Properties.Settings.Default.Opacity;
+                Size = Properties.Settings.Default.Size;
+                DisplayOn = Properties.Settings.Default.DisplayOn;
+                ShowInFullscreen = Properties.Settings.Default.ShowInFullscreen;
+                PlaySound = Properties.Settings.Default.PlaySound;
             }
             catch (Exception)
             {
@@ -110,6 +115,11 @@ namespace AudioController
             Properties.Settings.Default.AliasList = string.Join(StringArraySeparator, aliasStrings);
             Properties.Settings.Default.BackgroundColor = BackgroundColor;
             Properties.Settings.Default.TextColor = TextColor;
+            Properties.Settings.Default.Opacity = Opacity;
+            Properties.Settings.Default.Size = Size;
+            Properties.Settings.Default.DisplayOn = DisplayOn;
+            Properties.Settings.Default.ShowInFullscreen = ShowInFullscreen;
+            Properties.Settings.Default.PlaySound = PlaySound;
             Properties.Settings.Default.Save();
         }
 

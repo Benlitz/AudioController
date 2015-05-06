@@ -109,10 +109,10 @@ namespace AudioController.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0.30")]
-        public string Size {
+        [global::System.Configuration.DefaultSettingValueAttribute("0.3")]
+        public double Size {
             get {
-                return ((string)(this["Size"]));
+                return ((double)(this["Size"]));
             }
             set {
                 this["Size"] = value;

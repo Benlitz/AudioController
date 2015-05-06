@@ -23,8 +23,8 @@
     <Setting Name="Opacity" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0.85</Value>
     </Setting>
-    <Setting Name="Size" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0.30</Value>
+    <Setting Name="Size" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0.3</Value>
     </Setting>
     <Setting Name="DisplayOn" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
