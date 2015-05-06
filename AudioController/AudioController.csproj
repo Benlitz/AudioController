@@ -68,6 +68,7 @@
     </ApplicationDefinition>
     <Compile Include="ColorViewModel.cs" />
     <Compile Include="DeviceViewModel.cs" />
+    <Compile Include="DisplayViewModel.cs" />
     <Compile Include="HotKey.cs" />
     <Compile Include="Native.cs" />
     <Compile Include="Program.cs" />
