@@ -22,10 +22,11 @@
     </Window.CommandBindings>
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="20">
+            <Button Command="{Binding ApplySettingsCommand}" Content="Apply" Width="80" Margin="0,0,20,0"/>
             <Button Command="ApplicationCommands.Close" CommandParameter="{wx:Bool True}"
-                    Content="Ok" Width="80" Margin="0,0,20,0"/>
+                    Content="Ok" Width="80" Margin="0,0,20,0" IsDefault="True"/>
             <Button Command="ApplicationCommands.Close" CommandParameter="{wx:Bool False}"
-                    Content="Cancel" Width="80"/>
+                    Content="Cancel" Width="80" IsCancel="True"/>
         </StackPanel>
         <DockPanel Margin="20,10">
             <GroupBox DockPanel.Dock="Top" Header="Hot key" Margin="0,10">                

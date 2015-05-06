@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Input;
 using System.Windows.Media;
 using AudioController.Core;
 using WpfEx.ViewModels;
@@ -46,6 +47,7 @@ namespace AudioController
             availableColors.Sort();
             backgroundColor = availableColors.FirstOrDefault(x => x.Name == Settings.BackgroundColor);
             textColor = availableColors.FirstOrDefault(x => x.Name == Settings.TextColor);
+            ApplySettingsCommand = new AnonymousCommand(ApplySettings);
         }
 
         /// <summary>
@@ -102,6 +104,11 @@ namespace AudioController
         /// Gets or sets the text color of the notification window.
         /// </summary>
         public ColorViewModel TextColor { get { return textColor; } set { SetValue(ref textColor, value); } }
+
+        /// <summary>
+        /// Gets the command that will apply the settings of the view model to the settings of the application.
+        /// </summary>
+        public ICommand ApplySettingsCommand { get; private set; }
 
         /// <summary>
         /// Applies the changes in the settings.
