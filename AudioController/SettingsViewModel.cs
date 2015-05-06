@@ -43,6 +43,7 @@ namespace AudioController
         private bool playSound;
         private DisplayViewModel targetDisplay;
         private double size;
+        private bool showInFullscreen;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -88,6 +89,7 @@ namespace AudioController
                 }
             }
             TargetDisplay = availableTargetDisplay.FirstOrDefault(x => x.Id == Settings.DisplayOn) ?? availableTargetDisplay.FirstOrDefault();
+            showInFullscreen = Settings.ShowInFullscreen;
             playSound = Settings.PlaySound;
             ApplySettingsCommand = new AnonymousCommand(ApplySettings);
         }
@@ -168,6 +170,11 @@ namespace AudioController
         public DisplayViewModel TargetDisplay { get { return targetDisplay; } set { SetValue(ref targetDisplay, value); } }
 
         /// <summary>
+        /// Gets or sets whether to display the notification window when there is an application running in fullscreen on the target display.
+        /// </summary>
+        public bool ShowInFullscreen { get { return showInFullscreen; } set { SetValue(ref showInFullscreen, value); } }
+
+        /// <summary>
         /// Gets or sets whether to play a sound when the default device is changed.
         /// </summary>
         public bool PlaySound { get { return playSound; } set { SetValue(ref playSound, value); } }
@@ -194,6 +201,7 @@ namespace AudioController
             Settings.Opacity = Opacity;
             Settings.Size = Size;
             Settings.DisplayOn = TargetDisplay != null ? TargetDisplay.Id : 0;
+            Settings.ShowInFullscreen = ShowInFullscreen;
             Settings.PlaySound = PlaySound;
             foreach (var device in devices)
             {

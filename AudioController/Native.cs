@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows;
+using Point = System.Drawing.Point;
 
 // ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
@@ -41,6 +42,15 @@ namespace AudioController
         Disconnect = 0x2000000
     }
 
+    [StructLayout(LayoutKind.Sequential)]
+    public struct RECT
+    {
+        public int Left;
+        public int Top;
+        public int Right;
+        public int Bottom;
+    }
+
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     public struct DISPLAY_DEVICE
     {
@@ -75,5 +85,18 @@ namespace AudioController
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool EnumDisplayDevices(string lpDevice, uint iDevNum, ref DISPLAY_DEVICE lpDisplayDevice, uint dwFlags);
+
+        [DllImport("user32.dll")]
+        internal static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        internal static extern int GetSystemMetrics(int smIndex);
+
+        public const int SM_CXSCREEN = 0;
+        public const int SM_CYSCREEN = 1;
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
     }
 }

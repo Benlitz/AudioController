@@ -59,7 +59,7 @@ namespace AudioController
             }
         }
 
-        private static Screen GetTargetScreen()
+        public static Screen GetTargetScreen()
         {
             var screenId = Settings.DisplayOn;
             if (screenId == 0)

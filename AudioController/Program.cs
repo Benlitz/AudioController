@@ -82,6 +82,23 @@ namespace AudioController
                 {
                     System.Media.SystemSounds.Beep.Play();
                 }
+
+                if (!Settings.ShowInFullscreen)
+                {
+                    var handle = Import.GetForegroundWindow();
+                if (handle != IntPtr.Zero)
+                {
+                    RECT rect;
+                    Import.GetWindowRect(handle, out rect);
+                    var screen = MainWindow.GetTargetScreen();
+                    if (screen != null)
+                    {
+                        if (screen.Bounds.Left == rect.Left && screen.Bounds.Right == rect.Right
+                            && screen.Bounds.Top == rect.Top && screen.Bounds.Bottom == rect.Bottom)
+                            return;
+                    }
+                }
+                }
                 dispatcher.BeginInvoke(new Action(() =>
                 {
                     if (mainWindow != null)
