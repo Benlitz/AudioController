@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ac="clr-namespace:AudioController"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="SettingsWindow" Height="730" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
+        Title="SettingsWindow" Height="730" Width="720" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
     <Window.Resources>
         <BitmapImage x:Key="ImageReset" UriSource="Resources/eraser.png"/>
         <DataTemplate DataType="{x:Type ac:ColorViewModel}">
@@ -113,6 +113,7 @@
                         <RowDefinition Height="28"/>
                         <RowDefinition Height="28"/>
                         <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Background color:" VerticalAlignment="Center"/>
                     <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableColors}"
@@ -122,17 +123,23 @@
                               SelectedItem="{Binding TextColor}"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Opacity, StringFormat='Opacity: ({0:P0})'}" VerticalAlignment="Center"/>
                     <Slider Grid.Row="2" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding Opacity}"
-                            Minimum="0" Maximum="1" SmallChange="1" LargeChange="10"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Size, StringFormat='Size: ({0:P0})'}" VerticalAlignment="Center"/>
-                    <Slider Grid.Row="3" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding Size}"
-                            Minimum="0" Maximum="1" SmallChange="1" LargeChange="10"/>
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Display on:" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="0" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableTargetDisplay}"
+                            Minimum="0" Maximum="1" SmallChange="0.01" LargeChange="0.1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Duration, StringFormat='Duration: ({0}s)'}" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="3" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding Duration}"
+                            Minimum="0" Maximum="30" SmallChange="1" LargeChange="5"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="{Binding FadeOut, StringFormat='Fade out: ({0}s)'}" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="4" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding FadeOut}"
+                            Minimum="0" Maximum="10" SmallChange="1" LargeChange="2"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Size, StringFormat='Size: ({0:P0})'}" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="0" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" Value="{Binding Size}"
+                            Minimum="0" Maximum="1" SmallChange="0.01" LargeChange="0.1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Display on:" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableTargetDisplay}"
                               SelectedItem="{Binding TargetDisplay}" DisplayMemberPath="Name"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Show in fullscreen:" VerticalAlignment="Center"/>
-                    <CheckBox Grid.Row="1" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" IsChecked="{Binding ShowInFullscreen}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Play sound:" VerticalAlignment="Center"/>
-                    <CheckBox Grid.Row="2" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" IsChecked="{Binding PlaySound}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Show in fullscreen:" VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="2" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" IsChecked="{Binding ShowInFullscreen}"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Text="Play sound:" VerticalAlignment="Center"/>
+                    <CheckBox Grid.Row="3" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" IsChecked="{Binding PlaySound}"/>
                 </Grid>
             </GroupBox>
             

@@ -154,5 +154,29 @@ namespace AudioController.Properties {
                 this["PlaySound"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int Duration {
+            get {
+                return ((int)(this["Duration"]));
+            }
+            set {
+                this["Duration"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int FadeOut {
+            get {
+                return ((int)(this["FadeOut"]));
+            }
+            set {
+                this["FadeOut"] = value;
+            }
+        }
     }
 }

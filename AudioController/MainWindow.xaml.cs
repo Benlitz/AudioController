@@ -14,13 +14,16 @@ namespace AudioController
     /// </summary>
     public partial class MainWindow
     {
+        private Duration fadeOut;
+
         public MainWindow()
         {
             InitializeComponent();
             MainBorder.Background = GetBrush(Settings.BackgroundColor, Colors.LightSteelBlue);
             MainBorder.Opacity = Settings.Opacity;
             MainText.Foreground = GetBrush(Settings.TextColor, Colors.Black);
-
+            Duration = TimeSpan.FromSeconds(Settings.Duration);
+            FadeOut = TimeSpan.FromSeconds(Settings.FadeOut);
             var screen = GetTargetScreen();
             if (screen != null)
             {
@@ -36,14 +39,17 @@ namespace AudioController
                 Left = centerX - Width * 0.5;
                 Top = centerY - Height * 0.5;
             }
-            
-            var timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(10) };
 
+            var timer = new DispatcherTimer { Interval = Duration + FadeOut.TimeSpan };
             timer.Tick += (sender, args) => Hide();
             timer.Start();
         }
 
         public string DeviceName { get; set; }
+
+        public TimeSpan Duration { get; private set; }
+
+        public Duration FadeOut { get { return fadeOut; } private set { fadeOut = value; } }
 
         private SolidColorBrush GetBrush(string colorName, Color fallback)
         {

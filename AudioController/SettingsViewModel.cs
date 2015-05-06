@@ -44,6 +44,8 @@ namespace AudioController
         private DisplayViewModel targetDisplay;
         private double size;
         private bool showInFullscreen;
+        private int duration;
+        private int fadeOut;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -91,6 +93,8 @@ namespace AudioController
             TargetDisplay = availableTargetDisplay.FirstOrDefault(x => x.Id == Settings.DisplayOn) ?? availableTargetDisplay.FirstOrDefault();
             showInFullscreen = Settings.ShowInFullscreen;
             playSound = Settings.PlaySound;
+            duration = Settings.Duration;
+            fadeOut = Settings.FadeOut;
             ApplySettingsCommand = new AnonymousCommand(ApplySettings);
         }
 
@@ -180,6 +184,16 @@ namespace AudioController
         public bool PlaySound { get { return playSound; } set { SetValue(ref playSound, value); } }
 
         /// <summary>
+        /// Gets or sets the duration of the notification at maximal opacity.
+        /// </summary>
+        public int Duration { get { return duration; } set { SetValue(ref duration, value); } }
+
+        /// <summary>
+        /// Gets or sets the fade out time of the notification.
+        /// </summary>
+        public int FadeOut { get { return fadeOut; } set { SetValue(ref fadeOut, value); } }
+
+        /// <summary>
         /// Gets the command that will apply the settings of the view model to the settings of the application.
         /// </summary>
         public ICommand ApplySettingsCommand { get; private set; }
@@ -203,6 +217,8 @@ namespace AudioController
             Settings.DisplayOn = TargetDisplay != null ? TargetDisplay.Id : 0;
             Settings.ShowInFullscreen = ShowInFullscreen;
             Settings.PlaySound = PlaySound;
+            Settings.Duration = Duration;
+            Settings.FadeOut = FadeOut;
             foreach (var device in devices)
             {
                 device.ApplySettings();

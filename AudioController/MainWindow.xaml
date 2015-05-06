@@ -15,7 +15,8 @@
                     <Storyboard>
                         <DoubleAnimation Storyboard.TargetName="MainBorder" 
                        Storyboard.TargetProperty="Opacity" To="0" 
-                       Duration="0:0:0.5" BeginTime="0:0:2"/>
+                       Duration="{Binding FadeOut, RelativeSource={RelativeSource AncestorType=ac:MainWindow}, Mode=OneWay}"
+                       BeginTime="{Binding Duration, RelativeSource={RelativeSource AncestorType=ac:MainWindow}, Mode=OneWay}"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

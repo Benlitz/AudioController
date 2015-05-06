@@ -69,6 +69,16 @@ namespace AudioController
         /// </summary>
         public static bool PlaySound { get; set; }
 
+        /// <summary>
+        /// Gets or sets the duration of the notification at maximal opacity.
+        /// </summary>
+        public static int Duration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fade out time of the notification.
+        /// </summary>
+        public static int FadeOut { get; set; }
+
         public static void Load()
         {
             try
@@ -97,6 +107,8 @@ namespace AudioController
                 DisplayOn = Properties.Settings.Default.DisplayOn;
                 ShowInFullscreen = Properties.Settings.Default.ShowInFullscreen;
                 PlaySound = Properties.Settings.Default.PlaySound;
+                Duration = Properties.Settings.Default.Duration;
+                FadeOut = Properties.Settings.Default.FadeOut;
             }
             catch (Exception)
             {
@@ -119,6 +131,8 @@ namespace AudioController
             Properties.Settings.Default.DisplayOn = DisplayOn;
             Properties.Settings.Default.ShowInFullscreen = ShowInFullscreen;
             Properties.Settings.Default.PlaySound = PlaySound;
+            Properties.Settings.Default.Duration = Duration;
+            Properties.Settings.Default.FadeOut = FadeOut;
             Properties.Settings.Default.Save();
         }
 
