@@ -573,22 +573,9 @@
             Gets or sets the target type of the eighth converter to chain.
             </summary>
         </member>
-        <member name="T:WpfEx.Views.InvertBool">
+        <member name="T:WpfEx.Views.ColorToBrush">
             <summary>
-            An implementation of <see cref="T:System.Boolean"/> that will invert the value of a given <see cref="T:System.Nullable"/>.
-            if the boolean is <see cref="T:System.Windows.Data.IValueConverter"/>, it will returns <c>null</c> if the input value is <c>null</c>, or the inverse boolean value otherwise.
-            </summary>
-        </member>
-        <member name="M:WpfEx.Views.InvertBool.ProcessConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <inheritdoc/>
-        </member>
-        <member name="M:WpfEx.Views.InvertBool.ProcessBackwardConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <inheritdoc/>
-        </member>
-        <member name="T:WpfEx.Views.ObjectToBool">
-            <summary>
-            An implementation of <see cref="T:System.Windows.Data.IValueConverter"/> that will convert a given <see cref="T:System.Object"/> to
-            a boolean value, set to <c>false</c> if the object is <c>null</c>, or <c>true</c> otherwise.
+            An implementation of <see cref="T:System.Windows.Data.IValueConverter"/> that will create a <see cref="T:System.Windows.Media.SolidColorBrush"/> using the given <see cref="T:System.Windows.Media.Color"/>.
             </summary>
         </member>
         <member name="T:WpfEx.Views.OneWayTypedValueConverter`4">
@@ -630,6 +617,27 @@
         </member>
         <member name="M:WpfEx.Views.OneWayTypedValueConverter`4.ProcessConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.ColorToBrush.ProcessTypedConversion(System.Windows.Media.Color,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.InvertBool">
+            <summary>
+            An implementation of <see cref="T:System.Windows.Data.IValueConverter"/> that will invert the value of a given <see cref="T:System.Boolean"/>.
+            if the boolean is <see cref="T:System.Windows.Data.IValueConverter"/>, it will returns <c>null</c> if the input value is <c>null</c>, or the inverse boolean value otherwise.
+            </summary>
+        </member>
+        <member name="M:WpfEx.Views.InvertBool.ProcessConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WpfEx.Views.InvertBool.ProcessBackwardConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WpfEx.Views.ObjectToBool">
+            <summary>
+            An implementation of <see cref="T:System.Windows.Data.IValueConverter"/> that will convert a given <see cref="T:System.Object"/> to
+            a boolean value, set to <c>false</c> if the object is <c>null</c>, or <c>true</c> otherwise.
+            </summary>
         </member>
         <member name="M:WpfEx.Views.ObjectToBool.ProcessTypedConversion(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <inheritdoc/>

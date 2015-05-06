@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Windows.Media;
 using AudioController.Core;
 using WpfEx.ViewModels;
 
@@ -11,12 +13,15 @@ namespace AudioController
         private readonly HotKey hotKey;
         private readonly List<VirtualKey> availableKeys;
         private readonly List<DeviceViewModel> devices;
+        private readonly List<ColorViewModel> availableColors;
         private bool modifierCtrl;
         private bool modifierShift;
         private bool modifierAlt;
         private bool modifierWin;
         private VirtualKey key;
         private DeviceViewModel selectedDevice;
+        private ColorViewModel backgroundColor;
+        private ColorViewModel textColor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -36,6 +41,11 @@ namespace AudioController
             var settingsKey = Settings.Key;
             key = settingsKey;
             devices = new List<DeviceViewModel>(Controller.GetDevices().Select(x => new DeviceViewModel(x)));
+            var colors = typeof(Colors).GetProperties(BindingFlags.Static | BindingFlags.Public).Where(x => x.PropertyType == typeof(Color));
+            availableColors = new List<ColorViewModel>(colors.Select(x => new ColorViewModel(x.Name, (Color)x.GetValue(null))));
+            availableColors.Sort();
+            backgroundColor = availableColors.FirstOrDefault(x => x.Name == Settings.BackgroundColor);
+            textColor = availableColors.FirstOrDefault(x => x.Name == Settings.TextColor);
         }
 
         /// <summary>
@@ -79,6 +89,21 @@ namespace AudioController
         public DeviceViewModel SelectedDevice { get { return selectedDevice; } set { SetValue(ref selectedDevice, value); } }
 
         /// <summary>
+        /// Gets the collection of available colors.
+        /// </summary>
+        public IEnumerable<ColorViewModel> AvailableColors { get { return availableColors; } }
+
+        /// <summary>
+        /// Gets or sets the background color of the notification window.
+        /// </summary>
+        public ColorViewModel BackgroundColor { get { return backgroundColor; } set { SetValue(ref backgroundColor, value); } }
+
+        /// <summary>
+        /// Gets or sets the text color of the notification window.
+        /// </summary>
+        public ColorViewModel TextColor { get { return textColor; } set { SetValue(ref textColor, value); } }
+
+        /// <summary>
         /// Applies the changes in the settings.
         /// </summary>
         public void ApplySettings()
@@ -90,7 +115,8 @@ namespace AudioController
             modifiers = SetFlag(modifiers, Modifier.MOD_WIN, ModifierWin);
             Settings.Modifiers = modifiers;
             Settings.Key = Key;
-
+            Settings.BackgroundColor = BackgroundColor != null ? BackgroundColor.Name : "";
+            Settings.TextColor = TextColor != null ? TextColor.Name : "";
             foreach (var device in devices)
             {
                 device.ApplySettings();

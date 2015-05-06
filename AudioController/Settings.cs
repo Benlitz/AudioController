@@ -17,36 +17,12 @@ namespace AudioController
         /// <summary>
         /// Gets or sets the modifiers of the hot key.
         /// </summary>
-        public static Modifier Modifiers
-        {
-            get
-            {
-                Modifier result;
-                Enum.TryParse(Properties.Settings.Default.Modifiers, out result);
-                return result;
-            }
-            set
-            {
-                Properties.Settings.Default.Modifiers = value.ToString();
-            }
-        }
+        public static Modifier Modifiers { get; set; }
 
         /// <summary>
         /// Gets or sets the key of the hot key.
         /// </summary>
-        public static VirtualKey Key
-        {
-            get
-            {
-                VirtualKey result;
-                Enum.TryParse(Properties.Settings.Default.Key, out result);
-                return result;
-            }
-            set
-            {
-                Properties.Settings.Default.Key = value.ToString();
-            }
-        }
+        public static VirtualKey Key { get; set; }
 
         /// <summary>
         /// Gets the list of ids of the devices that are ignored.
@@ -58,10 +34,26 @@ namespace AudioController
         /// </summary>
         public static IDictionary<string, string> Aliases { get { return aliases; } }
 
+        /// <summary>
+        /// Gets or sets the background color of the notification window.
+        /// </summary>
+        public static string BackgroundColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the text color of the notification window.
+        /// </summary>
+        public static string TextColor { get; set; }
+
         public static void Load()
         {
             try
             {
+                Modifier modifiers;
+                Enum.TryParse(Properties.Settings.Default.Modifiers, out modifiers);
+                Modifiers = modifiers;
+                VirtualKey key;
+                Enum.TryParse(Properties.Settings.Default.Key, out key);
+                Key = key;
                 ignoreList.Clear();
                 foreach (var ignoredDevice in Split(Properties.Settings.Default.IgnoreList, StringArraySeparator))
                 {
@@ -73,6 +65,8 @@ namespace AudioController
                     var values = Split(alias, AliasAssignmentToken);
                     Aliases.Add(values[0], values[1]);
                 }
+                BackgroundColor = Properties.Settings.Default.BackgroundColor;
+                TextColor = Properties.Settings.Default.TextColor;
             }
             catch (Exception)
             {
@@ -84,8 +78,12 @@ namespace AudioController
         public static void Save()
         {
             var aliasStrings = Aliases.Select(x => string.Format("{0}{1}{2}", x.Key, AliasAssignmentToken, x.Value));
+            Properties.Settings.Default.Modifiers = Modifiers.ToString();
+            Properties.Settings.Default.Key = Key.ToString();
             Properties.Settings.Default.IgnoreList = string.Join(StringArraySeparator, ignoreList);
             Properties.Settings.Default.AliasList = string.Join(StringArraySeparator, aliasStrings);
+            Properties.Settings.Default.BackgroundColor = BackgroundColor;
+            Properties.Settings.Default.TextColor = TextColor;
             Properties.Settings.Default.Save();
         }
 

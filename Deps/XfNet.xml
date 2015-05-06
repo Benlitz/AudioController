@@ -48,6 +48,17 @@
             <param name="enumerable">The sequence to filter.</param>
             <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance containing the non-null values from the given sequence.</returns>
         </member>
+        <member name="T:XfNet.ExceptionExtensions">
+            <summary>
+            This static class contains extension methods that can be used on <see cref="T:System.Exception"/> instances.
+            </summary>
+        </member>
+        <member name="M:XfNet.ExceptionExtensions.Ignore(System.Exception)">
+            <summary>
+            Ignores explicitly the exception. This method does nothing but suppress warnings related to a catch block doing nothing.
+            </summary>
+            <param name="exception">The exception to ignore.</param>
+        </member>
         <member name="T:XfNet.ObjectExtensions">
             <summary>
             This static class contains extension methods that can be used on any object.
@@ -83,6 +94,96 @@
             <param name="type">The type to match.</param>
             <param name="value">The object to check.</param>
             <returns><c>true</c> if <see cref="!:value"/> is an instance of the given <see cref="T:System.Type"/>, or if the type is not a value type and the value is null. Otherwise, <c>false</c></returns>
+        </member>
+        <member name="M:XfNet.TypeExtensions.IsNumeric(System.Type)">
+            <summary>
+            Indicates whether the given type is a primitive numeric type, signed or unsigned, integer or floating-point.
+            </summary>
+            <param name="type">The type to check.</param>
+            <returns><c>true</c> if <paramref name="type"/> is a numeric type, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:XfNet.ColorHelper">
+            <summary>
+            This static class contains helper methods related to colors.
+            </summary>
+        </member>
+        <member name="M:XfNet.ColorHelper.Hue(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Computes the hue of the given color.
+            </summary>
+            <param name="r">The red component of the color.</param>
+            <param name="g">The green component of the color.</param>
+            <param name="b">The blue component of the color.</param>
+            <returns>The hue of the given color.</returns>
+        </member>
+        <member name="T:XfNet.MathHelper">
+            <summary>
+            This static class contains helper methods related to mathematics.
+            </summary>
+        </member>
+        <member name="M:XfNet.MathHelper.Round(System.Double)">
+            <summary>
+            Rounds the given <see cref="T:System.Double"/> value to the nearest integer using <see cref="F:System.MidpointRounding.AwayFromZero"/>
+            mode if the value is midway between two other numbers.
+            </summary>
+            <param name="value">The value to round.</param>
+            <returns>The value rounded to the nearest integer.</returns>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.Byte@,System.Byte@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.Byte"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.SByte@,System.SByte@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.SByte"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.Int16@,System.Int16@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.Int16"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.UInt16@,System.UInt16@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.UInt16"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.Int32@,System.Int32@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.Int32"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.UInt32@,System.UInt32@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.UInt32"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.Int64@,System.Int64@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.Int64"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
+        </member>
+        <member name="M:XfNet.MathHelper.Swap(System.UInt64@,System.UInt64@)">
+            <summary>
+            Swaps the value of two <see cref="T:System.UInt64"/> variables.
+            </summary>
+            <param name="a">The first value to swap.</param>
+            <param name="b">The second value to swap.</param>
         </member>
     </members>
 </doc>

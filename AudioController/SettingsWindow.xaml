@@ -9,6 +9,13 @@
         Title="SettingsWindow" Height="730" Width="640" d:DataContext="{d:DesignInstance ac:SettingsViewModel}">
     <Window.Resources>
         <BitmapImage x:Key="ImageReset" UriSource="Resources/eraser.png"/>
+        <DataTemplate DataType="{x:Type ac:ColorViewModel}">
+            <DockPanel Margin="2">
+                <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="1" Background="{Binding Color, Converter={wx:ColorToBrush}}"
+                        Width="30" SnapsToDevicePixels="True"/>
+                <TextBlock Margin="4, 0" Text="{Binding Name}"/>
+            </DockPanel>
+        </DataTemplate>
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CommandBindingClose"/>
@@ -101,15 +108,17 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="26"/>
-                        <RowDefinition Height="26"/>
-                        <RowDefinition Height="26"/>
-                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="28"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Background color:" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableColors}"
+                              SelectedItem="{Binding BackgroundColor}"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Text color:" VerticalAlignment="Center"/>
-                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableColors}"
+                              SelectedItem="{Binding TextColor}"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Opacity:" VerticalAlignment="Center"/>
                     <Slider Grid.Row="2" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Size:" VerticalAlignment="Center"/>
