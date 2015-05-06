@@ -123,8 +123,9 @@
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Opacity, StringFormat='Opacity: ({0:P0})'}" VerticalAlignment="Center"/>
                     <Slider Grid.Row="2" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding Opacity}"
                             Minimum="0" Maximum="1" SmallChange="1" LargeChange="10"/>
-                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Size:" VerticalAlignment="Center"/>
-                    <Slider Grid.Row="3" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="{Binding Size, StringFormat='Size: ({0:P0})'}" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="3" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding Size}"
+                            Minimum="0" Maximum="1" SmallChange="1" LargeChange="10"/>
                     <TextBlock Grid.Row="0" Grid.Column="2" Text="Display on:" VerticalAlignment="Center"/>
                     <ComboBox Grid.Row="0" Grid.Column="3" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableTargetDisplay}"
                               SelectedItem="{Binding TargetDisplay}" DisplayMemberPath="Name"/>

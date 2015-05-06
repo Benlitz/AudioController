@@ -42,6 +42,7 @@ namespace AudioController
         private double opacity;
         private bool playSound;
         private DisplayViewModel targetDisplay;
+        private double size;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -67,6 +68,7 @@ namespace AudioController
             backgroundColor = availableColors.FirstOrDefault(x => x.Name == Settings.BackgroundColor);
             textColor = availableColors.FirstOrDefault(x => x.Name == Settings.TextColor);
             opacity = Settings.Opacity;
+            size = Settings.Size;
             availableTargetDisplay = new List<DisplayViewModel> { new DisplayViewModel(0, "Display with mouse cursor") };
             foreach (var screen in Screen.AllScreens)
             {
@@ -151,6 +153,11 @@ namespace AudioController
         public double Opacity { get { return opacity; } set { SetValue(ref opacity, value); } }
 
         /// <summary>
+        /// Gets or sets the size of the notification window, in percentage of the target screen.
+        /// </summary>
+        public double Size { get { return size; } set { SetValue(ref size, value); } }
+
+        /// <summary>
         /// Gets the collection of display names on which the notification window can be displayed.
         /// </summary>
         public IEnumerable<DisplayViewModel> AvailableTargetDisplay { get { return availableTargetDisplay; } }
@@ -185,6 +192,7 @@ namespace AudioController
             Settings.BackgroundColor = BackgroundColor != null ? BackgroundColor.Name : "";
             Settings.TextColor = TextColor != null ? TextColor.Name : "";
             Settings.Opacity = Opacity;
+            Settings.Size = Size;
             Settings.DisplayOn = TargetDisplay != null ? TargetDisplay.Id : 0;
             Settings.PlaySound = PlaySound;
             foreach (var device in devices)

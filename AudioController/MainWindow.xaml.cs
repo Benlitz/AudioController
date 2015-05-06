@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -25,6 +26,13 @@ namespace AudioController
             {
                 var centerX = screen.Bounds.Left + screen.Bounds.Width * 0.5;
                 var centerY = screen.Bounds.Top + screen.Bounds.Height * 0.5;
+                Width = screen.Bounds.Width * Settings.Size;
+                Height = Width / 6.0;
+                MainBorder.CornerRadius = new CornerRadius(Height / 3.0);
+                // Hide everything if the height is too small
+                if (Height < 15)
+                    MainBorder.Visibility = Visibility.Hidden;
+
                 Left = centerX - Width * 0.5;
                 Top = centerY - Height * 0.5;
             }
