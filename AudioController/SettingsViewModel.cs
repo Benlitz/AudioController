@@ -23,6 +23,7 @@ namespace AudioController
         private DeviceViewModel selectedDevice;
         private ColorViewModel backgroundColor;
         private ColorViewModel textColor;
+        private double opacity;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -47,6 +48,7 @@ namespace AudioController
             availableColors.Sort();
             backgroundColor = availableColors.FirstOrDefault(x => x.Name == Settings.BackgroundColor);
             textColor = availableColors.FirstOrDefault(x => x.Name == Settings.TextColor);
+            opacity = Settings.Opacity;
             ApplySettingsCommand = new AnonymousCommand(ApplySettings);
         }
 
@@ -106,6 +108,11 @@ namespace AudioController
         public ColorViewModel TextColor { get { return textColor; } set { SetValue(ref textColor, value); } }
 
         /// <summary>
+        /// Gets or sets the opacity of the notification window.
+        /// </summary>
+        public double Opacity { get { return opacity; } set { SetValue(ref opacity, value); } }
+
+        /// <summary>
         /// Gets the command that will apply the settings of the view model to the settings of the application.
         /// </summary>
         public ICommand ApplySettingsCommand { get; private set; }
@@ -124,6 +131,7 @@ namespace AudioController
             Settings.Key = Key;
             Settings.BackgroundColor = BackgroundColor != null ? BackgroundColor.Name : "";
             Settings.TextColor = TextColor != null ? TextColor.Name : "";
+            Settings.Opacity = Opacity;
             foreach (var device in devices)
             {
                 device.ApplySettings();

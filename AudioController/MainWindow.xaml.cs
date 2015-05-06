@@ -15,6 +15,7 @@ namespace AudioController
         {
             InitializeComponent();
             MainBorder.Background = GetBrush(Settings.BackgroundColor, Colors.LightSteelBlue);
+            MainBorder.Opacity = Settings.Opacity;
             MainText.Foreground = GetBrush(Settings.TextColor, Colors.Black);
             var timer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(10)};
             timer.Tick += (sender, args) => Hide();

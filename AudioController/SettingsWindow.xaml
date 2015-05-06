@@ -13,7 +13,7 @@
             <DockPanel Margin="2">
                 <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="1" Background="{Binding Color, Converter={wx:ColorToBrush}}"
                         Width="30" SnapsToDevicePixels="True"/>
-                <TextBlock Margin="4, 0" Text="{Binding Name}"/>
+                <TextBlock Margin="4,0" Text="{Binding Name}"/>
             </DockPanel>
         </DataTemplate>
     </Window.Resources>
@@ -120,8 +120,9 @@
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Text color:" VerticalAlignment="Center"/>
                     <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" ItemsSource="{Binding AvailableColors}"
                               SelectedItem="{Binding TextColor}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Opacity:" VerticalAlignment="Center"/>
-                    <Slider Grid.Row="2" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Opacity, StringFormat='Opacity: ({0:P0})'}" VerticalAlignment="Center"/>
+                    <Slider Grid.Row="2" Grid.Column="1" Margin="10,0" VerticalAlignment="Center" Value="{Binding Opacity}"
+                            Minimum="0" Maximum="1" SmallChange="1" LargeChange="10"/>
                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Size:" VerticalAlignment="Center"/>
                     <Slider Grid.Row="3" Grid.Column="1" Margin="10,0" VerticalAlignment="Center"/>
                     <TextBlock Grid.Row="0" Grid.Column="2" Text="Display on:" VerticalAlignment="Center"/>
