@@ -44,6 +44,32 @@ namespace AudioController
         /// </summary>
         public static string TextColor { get; set; }
 
+        /// <summary>
+        /// Gets or sets the opacity of the notification window.
+        /// </summary>
+        public static double Opacity { get; set; }
+
+        /// <summary>
+        /// Gets or sets the size of the notifiction window, as a percentage of the resolution of the display it appears on.
+        /// </summary>
+        public static double Size { get; set; }
+
+        /// <summary>
+        /// Gets or sets on which display the notification window should appear.
+        /// </summary>
+        // TODO: Make a proper enum!
+        public static string DisplayOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether to display the notification window when there is a fullscreen application
+        /// </summary>
+        public static bool ShowInFullscreen { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether to play a sound when the default device is modified.
+        /// </summary>
+        public static bool PlaySound { get; set; }
+
         public static void Load()
         {
             try
