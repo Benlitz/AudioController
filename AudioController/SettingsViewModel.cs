@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using AudioController.Core;
+using Microsoft.Win32;
 using WpfEx.ViewModels;
 
 namespace AudioController
@@ -33,6 +34,7 @@ namespace AudioController
         private bool showInFullscreen;
         private int duration;
         private int fadeOut;
+        private bool runAtStartup;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsViewModel"/> class.
@@ -181,6 +183,11 @@ namespace AudioController
         public int FadeOut { get { return fadeOut; } set { SetValue(ref fadeOut, value); } }
 
         /// <summary>
+        /// Gets or sets whether to run this application at Windows startup
+        /// </summary>
+        public bool RunAtStartup { get { return runAtStartup; } set { SetValue(ref runAtStartup, value, UpdateRunAtStartup); } }
+
+        /// <summary>
         /// Gets the command that will apply the settings of the view model to the settings of the application.
         /// </summary>
         public ICommand ApplySettingsCommand { get; private set; }
@@ -215,6 +222,17 @@ namespace AudioController
             hotKey.Update();
         }
 
+        private void UpdateRunAtStartup()
+        {
+            RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (registryKey == null)
+                return;
+
+            if (RunAtStartup)
+                registryKey.SetValue("AudioController", Application.ExecutablePath);
+            else
+                registryKey.DeleteValue("AudioController", false);
+        }
 
         private static Modifier SetFlag(Modifier currentValue, Modifier flag, bool activate)
         {
