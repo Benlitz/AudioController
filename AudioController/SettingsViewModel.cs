@@ -84,6 +84,8 @@ namespace AudioController
             playSound = Settings.PlaySound;
             duration = Settings.Duration;
             fadeOut = Settings.FadeOut;
+            var registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            runAtStartup = registryKey != null && registryKey.GetValueNames().Contains("AudioController");
             ApplySettingsCommand = new AnonymousCommand(ApplySettings);
         }
 
@@ -229,7 +231,7 @@ namespace AudioController
                 return;
 
             if (RunAtStartup)
-                registryKey.SetValue("AudioController", Application.ExecutablePath);
+                registryKey.SetValue("AudioController", string.Format("{0}", Application.ExecutablePath));
             else
                 registryKey.DeleteValue("AudioController", false);
         }
